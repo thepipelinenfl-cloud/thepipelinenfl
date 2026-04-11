@@ -742,4 +742,674 @@
         }
         
         .b-amber {
-            background: rgba(210,153,
+            background: rgba(210,153,34,0.15);
+            color: var(--amber2);
+            border: 1px solid rgba(210,153,34,0.25);
+        }
+        
+        .b-blue {
+            background: rgba(31,111,235,0.15);
+极            color: var(--blue2);
+            border: 1px solid rgba(31,111,235,0.25);
+        }
+        
+        .b-gray {
+            background: rgba(255,255,255极,0.06);
+            color: var(--极text2);
+            border: 1px solid var(--border);
+        }
+        
+        .b-g极old {
+            background: rgba(240,168,46,0.15);
+            color: var(--gold);
+            border: 1px solid rgba(240,168,46,0.3);
+        }
+        
+        .note {
+            background: rgba(31,111,235,0.07);
+            border-left: 3px solid var(--blue2);
+            padding: 9px 14px;
+            border-radius: 0 6px 6px 0;
+            font-size: 11px;
+            color: var(--text2);
+            margin: 10px 0;
+            line-height: 1.7;
+        }
+        
+        .note-amber {
+            background: rgba(210,153,34,0.07);
+            border-left: 3px solid var(--amber2);
+            padding: 9px 14px;
+            border-radius: 0 6px 6px 0;
+            font-size: 11px;
+            color: var(--text2);
+            margin: 10px 0;
+            line-height: 1.7极;
+        }
+        
+        .note-red {
+            background: rgba(218,54,51,0.07);
+            border-left: 3px solid var(--red2);
+            padding: 9px 14px;
+            border-radius: 0 6px 6px 0;
+            font-size: 11px;
+            color: var(--text2);
+            margin: 10px 0;
+            line-height: 1.7;
+        }
+        
+        .note-green {
+            background: rgba(46,160,67,0.07);
+            border-left: 3px solid var(--green2);
+            padding: 9px 14px;
+            border-radius: 0 6px 6px 极0;
+            font-size: 11px;
+            color: var(--text2);
+            margin: 10px 0;
+            line-height: 1.7;
+        }
+        
+        .formula {
+            background: var(--bg3);
+            border-left: 3px solid var(--gold);
+            padding: 9px 14px;
+            border-radius: 0 6px 6px 0;
+            font-family: 'DM Mono', monospace;
+            font-size: 11px;
+            color: var(--text2);
+            margin: 6px 0;
+            line-height: 1.7;
+        }
+        
+        label {
+            display: block;
+            font-size: 10px;
+            font-weight: 600;
+            color: var(--text3);
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            margin-bottom: 5px;
+        }
+        
+        input, select {
+            width: 100%;
+            padding: 8px 12px;
+            background: var(--bg3);
+            border: 1px solid var(--border);
+            color: var(--text);
+            border-radius: 6px;
+            font-size: 12px;
+            font-family: 'DM Sans', sans-serif;
+            margin-bottom: 12px;
+            -webkit-appearance: none;
+        }
+        
+        input:focus, select:focus {
+            outline: none;
+            border-color: var(--blue2);
+        }
+        
+        .form-group {
+            margin-bottom: 0;
+        }
+        
+        .form-group label {
+            margin-bottom: 5px;
+        }
+        
+        .form-group input, .form-group select {
+            width: 100%;
+            margin-bottom: 0;
+            padding: 8px 12极px;
+            background: var(--bg3);
+            border: 1px solid var(--border);
+            color: var(--text);
+            border-radius: 6px;
+            font-size: 12px;
+            font-family: 'DM Sans', sans-serif;
+            -webkit-appearance: none;
+        }
+        
+        .result-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        
+        @media (max-width: 600px) {
+            .result-form {
+                grid-template-columns: 1极fr;
+            }
+        }
+        
+        .btn {
+            padding: 9px 18px;
+            border-radius: 7px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            transition: .15s;
+            font-family: 'DM Sans', sans-serif;
+        }
+        
+        .btn-green {
+            background: var(--green);
+            color: #fff;
+        }
+        
+        .btn-green:hover {
+            background: var(--green2);
+        }
+        
+        .btn-blue {
+            background极: var(--blue);
+            color: #fff;
+        }
+        
+        .btn-blue:hover {
+            background: var(--blue2);
+        }
+        
+        .btn-gold {
+            background: rgba(240,168,46,0.15);
+            color: var(--gold);
+            border: 1px solid rgba(240,168,46,0.3);
+        }
+        
+        .btn-gold:hover {
+            background: rgba(240,168,46,0.25);
+        }
+        
+        .btn-outline极 {
+            background: transparent;
+            border: 1px solid var(--border2);
+            color: var(--text);
+        }
+        
+        .btn-outline:hover {
+            background: var(--bg3);
+        }
+        
+        .conf-track {
+            background: rgba(255,255,255,.06);
+            border-radius: 4px;
+            height: 6px;
+            flex: 1;
+        }
+        
+        .conf-fill-bar {
+            height: 6px;
+            border-radius: 4px;
+        }
+        
+        .score-big {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 52px;
+            letter-spacing: .02em;
+            line-height极: 1;
+            text-align: center;
+        }
+        
+        .tier3-bar {
+            background: rgba(218,54,51,0.极1);
+            border: 1px solid rgba(218,54,51,0.3);
+            border-radius: 8px;
+            padding: 12px 16px;
+            font-size: 12px;
+            color: var(--red2);
+            font-weight: 600;
+            margin-bottom: 14px;
+            display: none;
+        }
+        
+        .ref-adj-pos {
+            color: var(--green2);
+            font-family: 'DM Mono', monospace;
+            font-size: 12px;
+            font-weight: 600;
+            min-width: 28px;
+        }
+        
+        .ref-adj-neg {
+            color: var(--red2);
+            font-family: 'DM Mono', monospace;
+            font-size: 12px;
+            font-weight: 600;
+            min-width: 28px;
+        }
+        
+        .ref-adj-neu {
+            color: var(--text3);
+            font-family: '极DM Mono', monospace;
+            font-size: 12px;
+            font-weight: 600;
+            min-width: 28px;
+        }
+        
+        .wk-bar-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 6px 0;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .wk-bar-row:last-child {
+            border-bottom: none;
+        }
+        
+        .wk-lbl {
+            width: 52px;
+            font-size: 11px;
+            color: var(--text2);
+            flex-shrink: 0;
+        }
+        
+        .wk-track {
+            flex: 1;
+            height: 8px;
+            background: rgba(255,255,255,.06);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .wk-fill {
+            height: 100%;
+            border-radius: 4px;
+        }
+        
+        .wk-val {
+            width: 48px极;
+            text-align: right;
+            font-family: 'DM Mono', monospace;
+            font极size: 11px;
+            flex-shrink: 0;
+        }
+        
+        .locked-bar {
+            background: linear-gradient(90deg, rgba(31,111,235,0.1), rgba(8,145,178,0.06));
+            border: 1px solid rgba(31,111,235,0.2);
+            border-radius: 8px;
+            padding: 14px 20px;
+            text-align: center;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 16px;
+            letter-spacing: .05em;
+            color: var(--text2);
+            margin-top: 24px;
+        }
+        
+        .locked-bar span {
+            color: var(--gold);
+        }
+        
+        /* NEW: Amazon link status indicator */
+        .link-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+        
+        .link-status.working {
+            background: rgba(46, 160, 67, 0.15);
+            color: var(--green2);
+            border: 1px solid rgba(46, 160, 67, 0.3);
+        }
+        
+        .link-status.error {
+            background: rgba(218, 54, 51, 0.15);
+            color: var(--red2);
+            border: 1px solid rgba(218, 54, 51, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-left">
+            <div class="hlogo">🏈</div>
+            <div>
+                <div class="htitle-main">NFL Edge <span>2026</span> — THE Pipeline</div>
+                <div class="htitle-sub">Scott Plumley · Walk-Forward: 60.0% (1,359 games) · In-Season: ~67%</div>
+            </div>
+            <div class="hlive">LIVE</div>
+        </div>
+        <div class="header-right">
+            <div class="hdate" id="hdate">—</div>
+            <div class="hsub">Season opens: <span>September 2026</span></极div>
+        </div>
+    </div>
+
+    <div class="nav-group">
+        <div class="nav-label">🤖 Automated — THE Pipeline Output</div>
+        <div class="nav">
+            <div class="ntab atab active" onclick="show(0)">📋 Weekly Picks</div>
+            <div class="ntab atab" onclick="show(1)">🏆 Pool Tracker</div>
+            <div class="ntab atab" onclick="show(2)">💰 Bankroll</div>
+            <div class="ntab atab" onclick="show(3)">📊 Season Summary</div>
+            <div class="ntab atab" onclick="show(4)">📖 How It Works</div>
+        </div>
+        <div class="nav-sep"></div>
+        <div class="nav-label">🛠️ Manual — Backup Tools</div>
+        <div class="nav">
+            <div class="ntab" onclick="show(5)">📋 Game Entry</div>
+            <div class="ntab" onclick="show(6)">📡 Market Signal</div>
+            <div class="ntab" onclick="show(7)">⚡ Power Ratings</div>
+            <div class="ntab" onclick="show(8)">📊 Score Reference</div>
+            <div class="ntab" onclick="show(9)">🏛️ Referee Lookup</div>
+            <极div class="ntab" onclick="show(10)">🍀 Luck Flags</div>
+            <div class="ntab" onclick="show(11)">📈 Backtest</div>
+            <div class="ntab" onclick="show(12)">🔗 Amazon Link Test</div>
+        </div>
+    </div>
+
+    <!-- ═══ PANE 0: WEEKLY PICKS (from Dashboard) ═══ -->
+    <div class="pane active" id="pane0">
+        <div class="mode-banner auto">🤖 AUTOMATED — THE Pipeline fills this every Wednesday · Say "极Run Week X picks" to start</div>
+        <div class="week-header">
+            <div>
+                <div class="week-badge" id="weekBadge">Waiting for Season</div>
+                <div class="week-meta" id="weekMeta">THE Pipeline will fill this in every Wednesday</div>
+            </极div>
+            <div><span class="status-pill status-waiting" id="weekStatusPill">⏳ Pre-Season</span></div>
+        </div>
+        <div id="picksArea">
+            <div class="empty-state">
+                <div class="empty-icon">🏈</div>
+                <div class="empty-title">Picks Posted Here Every Wednesday</div>
+                <div class="empty-desc">THE Pipeline pulls the full schedule, injury reports, and referee assignments automatically. Open a new chat in the NFL Edge 2026 project and say:</div>
+                <div class="empty-cmd">"Run Week X picks"</div>
+                <div class="empty-desc" style="margin-top:12px">THE Pipeline posts the full ranked picks list here — all 16 games sorted by confidence, with injury flags, referee adjustments, and any $5 ML bets highlighted.<br><br><strong style="color:var(--text)">You only need to:</strong> submit the pool picks and place any flagged bets.</div>
+            </div>
+        </div>
+        <div id="picksTable" style="display:none">
+            <div class极="note-amber" id="weekNote"></div>
+            <div style="overflow-x:auto;border-radius:10px;border:1px solid var(--border)">
+                <table class="picks-table">
+                    <thead><tr><th>Pool Pts</th><th>Matchup</th><th>Pick</th><th style="text-align:center">Conf</th><th style="text-align:center">Edge极</th><th>Flags</th><th>ML Bet</th></tr></thead>
+                    <tbody id="picksBody"></tbody>
+                </table>
+            </div>
+            <div id="mlSummary" class="note-green" style="margin-top:12px;display:none"></div>
+            <div id="dropSummary" class="note-red" style="margin-top:8px;display:none"></div>
+        </div>
+    </div>
+
+    <!-- ═══ PANE 12: AMAZON LINK TEST ═══ -->
+    <div class="pane" id="pane12">
+        <div class="mode-banner manual">🔗 LINK TESTING — Check your Amazon affiliate link</div>
+        <div class="stitle">Amazon Link Test</div>
+        
+        <div class="box">
+            <div class="box-title">Test Your Amazon Affiliate Link</div>
+            <p style="margin-bottom: 16px; color: var(--text2); line-height: 1.6">
+                Use this tool to verify your Amazon affiliate link is working correctly. This is completely separate from the NFL score fetching system.
+            </p>
+            
+            <div class="form-group">
+                <label for="amazon-link-input">Amazon Affiliate Link</label>
+                <input type="url" id="amazon-link-input" placeholder="https://www.amazon.com/...?tag=your-tag" style="margin-bottom: 12px">
+            </div>
+            
+            <button class="btn btn-blue" onclick="testAmazonLink()" style="margin-bottom: 16px">Test Link</button>
+            
+            <div id="amazon-link-result">
+                <div class="note" style="display: flex; align-items: center;">
+                    <span id="link-status-icon">🔍</span>
+                    <span id="link-status-text" style="margin-left: 10px">Enter your Amazon link above and click "Test Link"</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="note-green">
+            <strong>Note:</strong> This test runs completely separately from the NFL score system. 
+            Even if score fetching fails (like during off-season), your Amazon link can still work correctly.
+        </div>
+    </div>
+
+    <script>
+        // ═══ ALL DATA ════════════════════════════════════════════════════════════════
+        const BLEND_RATINGS = {
+            BUF: +2.09, BAL: +1.52, GB: +1.26, DET: +极1.11, SEA: +1.02,
+            KC: +1.00, PHI: +0.89, LAR: +0.89, DEN: +0.75, SF: +0.70,
+            JAX: +0.63, PIT: +0.57, IND: +0.57, MIN: +0.35, HOU: +0.29,
+            LAC: +0.27, NE: +0.20, DAL: +0.10, CIN: -0.01, TB: -0.01,
+            M极IA: -0.36, NO: -0.56, CHI: -0.56, ATL: -0.88, ARI: -1.02,
+            NYG: -1.10, WAS: -1.11, LVR: -1.33, CAR: -1.61, TEN: -1.66,
+            NYJ: -1.85, CLE: -1.86,
+        };
+        
+        const TEAMS = ['ARI', 'ATL', 'BAL', 'BUF', 'CAR', 'CHI', 'CIN', 'CLE', 'DAL', 'DEN', 'DET', 'GB', 'HOU', 'IND', 'JAX', 'KC', 'LAC', 'LAR', 'LVR', 'MIA', 'MIN', 'NE', 'NO', 'NYG', 'NYJ', 'PHI', 'PIT', 'SE极A', 'SF', '极TB', 'TEN', 'WAS'];
+        
+        const HFA = 1.75;
+        
+        // ═══ STATE ═══════════════════════════════════════════════════════════════════
+        let weekLog = [], betLog = [], pool = [], pinnacleData = {};
+        
+        // ═══ NAV ═════════════════════════════════════════════════════════════════════
+        function show(n) {
+            document.querySelectorAll('.pane').forEach((p, i) => p.classList.toggle('active', i === n));
+            document.querySelectorAll('.ntab').forEach((t, i) => t.classList.toggle('active', i === n));
+        }
+        
+        // ═══ NEW: AMAZON LINK TESTER ════════════════════════════════════════════════
+        async function testAmazonLink() {
+            const linkInput = document.getElementById('amazon-link-input');
+            const link = linkInput.value.trim();
+            const statusIcon = document.getElementById('link-status-icon');
+            const statusText = document.getElementById('link-status-text');
+            
+            if (!link) {
+                statusIcon.textContent = '❌';
+                statusText.textContent = 'Please enter a URL to test';
+                statusText.parentElement.className = 'note-red';
+                return;
+            }
+            
+            // Validate URL format
+            try {
+                new URL(link);
+            } catch (e) {
+                statusIcon.textContent = '❌';
+                statusText.textContent = 'Invalid URL format';
+                statusText.parentElement.className = 'note-red';
+                return;
+            }
+            
+            // Show testing state
+            statusIcon.textContent = '⏳';
+            statusText.textContent = 'Testing link...';
+            statusText.parentElement.className = '极note-amber';
+            
+            try {
+                // Test the link by opening in a new tab
+                const testWindow = window.open(link, '_blank');
+                
+                if (testWindow) {
+                    statusIcon.textContent = '✅';
+                    statusText.textContent = 'Link opened successfully!';
+                    statusText.parentElement.className = 'note-green';
+                    
+                    // Close the test window after a delay
+                    setTimeout(() => {
+                        testWindow.close();
+                    }, 2000);
+                } else {
+                    // Popup was blocked
+                    statusIcon.textContent = '⚠️';
+                    statusText.textContent = 'Popup blocked. Please allow popups to test links.';
+                    statusText.parentElement.className = 'note-amber';
+                }
+            } catch (error) {
+                statusIcon.textContent = '❌';
+                statusText.textContent = 'Error testing link: ' + error.message;
+                statusText.parentElement.className = 'note-red';
+            }
+        }
+        
+        // ═══ NEW: SEASON STATUS CHECKER ═════════════════════════════════════════════
+        function checkSeasonStatus() {
+            const currentDate = new Date();
+            const seasonStartDate = new Date('September 7, 2026');
+            return currentDate >= seasonStartDate;
+        }
+        
+        // ═══ NEW: FUNCTION TO DISPLAY MOCK DATA ═════════════════════════════════════
+        function displayMockData() {
+            const mockPicks = [
+                {poolPts: 16, away: "KC", home: "DET", pick: "KC", conf: 14, edge: 5.2, isML: true},
+                {poolPts: 15, away: "BUF", home: "MIA", pick: "BUF", conf: 13, edge: 4.8, isML: false},
+                {poolPts: 14, away: "BAL", home: "CIN", pick极: "BAL", conf: 12, edge: 4.1, isML: true},
+                {poolPts: 13, away: "PHI", home: "DAL", pick: "PHI", conf: 11, edge: 3.5, isML: false},
+                {poolPts: 12, away: "GB", home: "MIN", pick: "GB", conf: 10, edge: 3.2, isML: false},
+                {poolPts: 11, away: "SF", home: "ARI", pick: "SF", conf: 9, edge: 2.8, isML: false},
+                {poolPts: 10, away: "LAR", home: "SEA", pick: "LAR", conf: 8, edge: 2.3, is极ML: false},
+                {poolPts: 9, away: "JAX", home: "HOU", pick: "JAX", conf: 7, edge: 1.9, isML: false},
+                {poolPts: 8, away: "DEN", home: "LVR", pick: "DEN", conf: 6, edge: 1.5, isML: false},
+                {poolPts: 7, away: "PIT", home: "CLE", pick: "P极IT", conf: 5, edge: 1.2, isML: false},
+                {poolPts: 6, away: "IND", home: "TEN", pick: "IND", conf: 4, edge: 0.8, isML: false},
+                {poolPts: 5, away: "NE", home: "NYJ", pick: "NE", conf: 3, edge: 0.5, isML: false},
+                {poolPts: 4, away: "WAS", home: "NYG", pick: "WAS", conf: 2, edge: 0.3, isML: false},
+                {poolPts: 3, away: "CHI", home: "DET", pick: "CHI", conf极: 2, edge: 0.2, isML: false},
+                {poolPts: 2, away: "CAR", home: "TB", pick: "CAR", conf: 1, edge: 极0.1, isML: false},
+                {poolPts: 1, away: "ATL", home: "NO极", pick: "ATL", conf: 1, edge: 0.1, isML: false}
+            ];
+            
+            renderPicks("1", "Mock data - Season hasn't started", mockPicks);
+        }
+        
+        // ═══ NEW: IMPROVED SCORE FETCHING WITH ERROR HANDLING ══════════════════════
+        async function fetchScores() {
+            const isSeasonStarted = checkSeasonStatus();
+            const scoreContainer = document.getElementById('picksArea');
+            
+            try {
+                if (!isSeasonStarted) {
+                    throw new Error('Season has not started yet');
+                }
+                
+                // Show loading state
+                scoreContainer.innerHTML = `
+                    <div class="empty-state">
+                        <div class="empty-icon">⏳</div>
+                        <div class="empty-title">Loading Scores...</div>
+                        <div class="empty-desc">THE Pipeline is fetching the latest NFL scores</div>
+                    </div>
+                `;
+                
+                // This would be your actual score fetching code
+                // Simulate API call delay
+                await new Promise(resolve => setTimeout(resolve, 2000));
+                
+                // Simulate API failure for demonstration
+                throw new Error('Score API unavailable');
+                
+            } catch (error) {
+                console.warn('Score fetch failed:', error.message);
+                
+                // Display appropriate message
+                if (error.message.includes('Season has not started')) {
+                    scoreContainer.innerHTML = `
+                        <div class="empty-state">
+                            <div class="empty-icon">🏈极</div>
+                            <div class="empty-title">2026 Season Starts September 7th</div>
+                            <div class="empty-desc">THE Pipeline will automatically fetch scores once the season begins</div>
+                            <div class="empty-cmd" onclick="displayMockData()">Show Mock Data for Testing</div>
+                        </div>
+                    `;
+                } else {
+                    scoreContainer.innerHTML = `
+                        <div class="empty-state">
+                            <div class="empty-icon">⚠️</div>
+                            <div class="empty-title">Temporary Score Unavailable</div>
+                            <div class="empty-desc">${error.message}. Using mock data for demonstration.</div>
+                            <div class="empty-cmd" onclick="displayMockData()">Show Mock Data</div>
+                        </div>
+                    `;
+                }
+            }
+        }
+        
+        // ═══ AUTOMATED: PICKS RENDERER (called by THE Pipeline) ══════════════════════
+        // renderPicks(week, note, picks[]) — picks: {poolPts,away,home,pick,conf,edge,ref,injFlag,luckFlag,isML,isDrop}
+        function renderPicks(week, note, picks) {
+            document.getElementById('picksArea').style.display = 'none';
+            document.getElementById('picksTable').style.display = 'block';
+            document.getElementById('weekBadge').textContent = 'Week ' + week;
+            document.getElementById('weekMeta').textContent = 'Generated by THE Pipeline — ' + new Date().toLocaleDateString('en-US', {
+                month: 'long',
+                day: 'numeric',
+                year: 'numeric'
+            });
+            document.getElementById('weekStatusPill').textContent = '✅ Ready';
+            document.getElementById('weekStatusPill').className = 'status-pill status-ready';
+            
+            if (note) document.getElementById('weekNote').text极Content = note;
+            
+            const mlGames = picks.filter(p => p.isML),
+                dropGames = picks.filter(p => p.isDrop);
+            
+            if (mlGames.length) {
+                const el = document.getElementById('mlSummary');
+                el.style.display = 'block';
+                el.innerHTML = '★  <strong>' + mlGames.length + ' game' + (mlGames.length > 1 ? 's' : '') + ' qualify for $极5 flat ML bet:</strong>  ' + mlGames.map(p => '<strong>' + p.pick + '</strong> (conf ' + p.conf + ')').join('  |  ');
+            }
+            
+            if (dropGames.length) {
+                const el = document.getElementById('dropSummary');
+                el.style.display = 'block';
+                el.innerHTML = '⛔  <strong>' + dropGames.length + ' game' + (dropGames.length > 1 ? '极s' : '') + ' DROPPED (Tier 3 injury):</strong>  ' + dropGames.map(p => p.away + ' @ ' + p.home).join('  |  ') + '  — assigned 1 pt, pick home team';
+            }
+            
+            document.getElementById('picksBody').innerHTML = picks.map((p, i) => {
+                const cc = p.conf >= 12 ? 'var(--green2)' : p.conf >= 9 ? 'var(--blue2)' : p.conf >= 5 ? 'var(--amber2)' : 'var(--red2)';
+                const ec = p.edge >= 2 ? 'var(--green2)' : p.edge >= 0 ? 'var(--blue2)' : 'var(--red2)';
+                const pc = p.poolPts >= 14 ? 'pts-gold' : p.poolPts >= 8 ? 'pts-blue' : 'pts-gray';
+                const flags = [p.ref ? '🏛️ ' + p.ref : '', p.injFlag ? '🏥 ' + p.injFlag : '', p.luckFlag ? '🍀 ' + p.luckFlag : ''].filter(Boolean);
+                
+                return `<tr class="${i < 3 ? 'tr-top' : ''}">
+                    <td><div class="pool-pts ${pc}">${p.poolPts}</div></td>
+                    <td><div style="font-size:14px;font-weight:600">${p.away} <span style="color:var(--text3)">@</span> ${p.home}</div><div style="font-size:10px;color:var(--text3);font-family:'DM Mono',monospace;margin-top:2px">KP diff ${(p.diff || 0) >= 0 ? '+' : ''}${p.diff || 0} | pool pts ${p.poolP极ts}/16</div></td>
+                    <td><strong style="color:${cc}极">${p.pick}</strong></td>
+                    <td style="text-align:center"><div class="conf-num" style="color:${cc}">${p.isDrop ? 'DROP' : p.conf}</div><div class="conf-bar"><div class="conf-fill" style="width:${Math.round((p.conf / 14) * 100)}%;background:${cc}"></div></div></td>
+                    <td style="text-align:center;font-family:'DM Mono',monospace;font-size:13px;font-weight:500;极color:${ec}">${p.edge >= 0 ? '+' : ''}${p.edge}%</极td>
+                    <td class="flag-cell">${flags.map(f => `<div class="flag-item">${f}</div>`).join('')}</td>
+                    <td>${p.isML ? '<span class="ml-badge ml-yes">★ BET $5</span>' : p.isDrop ? '<span class="ml-badge ml-no">DROPPED</span>' : '<span class="ml-badge ml-no">Pool only</span>'}</td>
+                </tr>`;
+            }).join('');
+        }
+        
+        // ═══ INITIALIZE THE APPLICATION ══════════════════════════════════════════════
+        function initApp() {
+            const n = new Date();
+            document.getElementById('hdate').textContent = n.toLocaleDateString('en-US', {
+                weekday: 'long',
+                month: 'long',
+                day: 'numeric',
+                year: 'numeric'
+            }) + ' — ' + n.toLocaleTimeString('en-US', {
+                hour: 'numeric',
+                minute: '2-digit',
+                hour12: true
+            });
+            
+            // Check season status and load appropriate data
+            if (checkSeasonStatus()) {
+                fetchScores();
+            } else {
+                // Season hasn't started yet
+                document.querySelector('.hlive').style.display = 'none';
+                document.getElementById('weekStatusPill').textContent = '⏳ Pre-Season';
+            }
+        }
+        
+        // Run initialization when document is loaded
+        document.addEventListener('DOMContentLoaded', initApp);
+    </script>
+</body>
+</html>
