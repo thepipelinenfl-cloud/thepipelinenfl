@@ -1,1415 +1,489 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NFL Edge 2026 — THE Pipeline</title>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg: #0d1117;
-            --极bg2: #161b24;
-            --bg3: #1e2633;
-            --bg4: #252e3d;
-            --border: rgba(255,255,255,0.07);
-            --border2: rgba(255,255,255,0.13);
-            --text: #e6edf3;
-            --text2: #8b96a7;
-            --text3: #4e5a极a;
-            --green: #2ea043;
-            --green2: #3fb950;
-            --blue: #1f6feb;
-            --blue2: #388bfd;
-            --amber: #d29922;
-            --amber2: #e3b341;
-            --red: #da3633;
-            --red2: #f85149;
-            --teal: #0891b2;
-            --teal2: #22d3ee;
-            --gold: #f0a82e;
-        }
-        
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-        
-        html, body {
-            height: 100%;
-            font-family: 'DM Sans', sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            font-size: 13px;
-        }
-        
-        .header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 14px 28px;
-            background: var(--bg2);
-            border-bottom: 2px solid var(--gold);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        
-        .header-left {
-            display: flex极;
-            align-items: center;
-            gap: 14px;
-        }
-        
-        .hlogo {
-            width: 38px;
-            height: 38px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #1极f6feb, #0891b2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
-            flex-shrink: 0;
-        }
-        
-        .htitle-main {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 24px;
-            letter-spacing: .06em;
-        }
-        
-        .htitle-main span {
-            color: var(--gold);
-        }
-        
-        .htitle-sub {
-            font-size: 11极px;
-            color: var(--text2);
-            margin-top: 1px;
-        }
-        
-        .hlive {
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-            background: rgba(46,160,67,0.15);
-            border: 1px solid rgba(46,160,67,0.35);
-            color: var(--green2);
-            padding: 3px 10px;
-            border-radius: 20px;
-            font-size: 11px;
-            font-weight: 600;
-        }
-        
-        .hlive::before {
-            content: '';
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background: var(--green2);
-            animation: pulse 2s infinite;
-        }
-        
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: .4; }
-        }
-        
-        .header-right {
-            text-align: right;
-        }
-        
-        .hdate {
-            font-size: 13px;
-            font-weight: 500;
-        }
-        
-        .hsub {
-            font-size: 11px;
-            color: var(--text2);
-            margin-top: 2px;
-        }
-        
-        .hsub span {
-            color: var(--green2);
-            font-weight: 600;
-        }
-        
-        /* NAV — two labeled rows */
-        .nav-group {
-            background: var(--bg2);
-            border-bottom: 1px solid var(--border);
-        }
-        
-        .nav-label {
-            padding: 5px 28px 0;
-            font-size: 9px;
-            font-weight: 700;
-            color: var(--text3);
-            text-transform: uppercase;
-            letter-spacing: .12em;
-        }
-        
-        .nav {
-            display: flex;
-            padding: 0 28px;
-            gap: 2px;
-            overflow-x: auto;
-        }
-        
-        .nav-se极p {
-            height: 1px;
-            background: var(--border);
-            margin: 0 28px;
-        }
-        
-        .ntab {
-            padding: 10px 16px;
-            color: var(--text2);
-            cursor: pointer;
-            font-size: 12px;
-            font-weight: 500;
-            border-bottom: 2px solid transparent;
-            white-space: nowrap;
-            transition: .15s;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-        
-        .ntab:hover {
-            color: var(--text);
-        }
-        
-        .ntab.active {
-            color: var(--text);
-            border-bottom-color: var(--gold);
-        }
-        
-        .ntab.atab.active {
-            border-bottom-color: var(--green2);
-        }
-        
-        /* PANES */
-        .pane {
-            display: none;
-            padding: 24px 28px;
-            max-width: 1320px;
-            margin: 0 auto;
-        }
-        
-        .pane.active {
-            display: block;
-极        }
-        
-        .mode-banner {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 8px 14px;
-            border-radius: 8px;
-            font-size: 11px;
-            font-weight: 600;
-            letter-spacing: .04em;
-            margin-bottom: 16px;
-        }
-        
-        .mode-banner.auto {
-            background: rgba(46,160,67,0.08);
-            border: 1px solid rgba(46,160,67,0.2);
-极            color: var(--green2);
-        }
-        
-        .mode-banner.manual {
-            background: rgba(240,168,46,0.08);
-            border: 1px solid rgba(240,168,46,0.2);
-            color: var(--amber2);
-        }
-        
-        /* SECTION TITLES */
-        .stitle {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 20px;
-            letter-spacing: .05em;
-            margin-bottom: 18px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .stitle::after {
-            content: '';
-            flex: 1;
-            height: 1px;
-            background: var(--border);
-        }
-        
-        /* HOW IT WORKS */
-        .how-box {
-            background: linear-gradient(135deg, rgba(31,111,235,0.12), rgba(8,145,178,0.06));
-            border: 1px solid rgba(31,111,235,0.25);
-            border-radius: 12px;
-            padding: 24px;
-            margin-bottom: 20px;
-        }
-        
-        .how-box h2 {
-            font-family: '极Bebas Neue', sans-serif;
-            font-size: 22px;
-            color: var(--blue2);
-            letter-spacing: .05em;
-            margin-bottom: 12极px;
-        }
-        
-        .how-steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-            gap: 14px;
-            margin-top: 14px;
-        }
-        
-        .how-step {
-            background: rgba(255,255,255,0.04);
-            border: 1px solid var(--border2);
-            border-radius: 10px;
-            padding: 14px;
-        }
-        
-        .how-step-num {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 32px;
-            color: var(--gold);
-            line-height: 1;
-            margin-bottom: 4px;
-        }
-        
-        .how-step-title {
-            font-size: 13px;
-            font-weight: 600;
-            color: var(--text);
-            margin-bottom: 4px;
-        }
-        
-        .how-step-desc {
-            font-size: 11px;
-            color: var(--text2);
-            line-height: 1.6;
-        }
-        
-        /* WEEK DISPLAY */
-        .week-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background: var(--bg2);
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            padding: 16px 20px;
-            margin-bottom: 20px;
-        }
-        
-        .week-badge {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 28px;
-            color: var(--gold);
-            letter-spacing: .04em;
-        }
-        
-        .week-meta {
-            font-size: 11px;
-            color: var(--text2);
-            margin-top: 2px;
-        }
-        
-        .status-pill {
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 11px;
-            font-weight: 600;
-        }
-        
-        .status-ready {
-            background: rgba(46,160,67极,0.15);
-            color: var(--green2);
-            border: 1px solid rgba(46,160,67,0.3);
-        }
-        
-        .status-waiting {
-            background: rgba(255,255,255,0.06);
-            color: var(--text2);
-            border: 1px solid var(--border);
-        }
-        
-        /* PICKS TABLE */
-        .picks-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 16px;
-        }
-        
-        .picks-table thead tr {
-            background: var(--bg3);
-        }
-        
-        .picks-table th {
-            padding: 10px 14px;
-            text-align: left;
-            font-size: 10px;
-            font-weight: 600;
-            color: var(--text3);
-            text-transform: uppercase;
-            letter-spacing: .09em;
-            white-space: nowrap;
-        }
-        
-        .picks-table td {
-            padding: 11px 14px;
-            border-top: 1px solid var(--border);
-            font-size: 13px;
-            vertical-align: middle;
-        }
-        
-        .picks-table tbody tr:hover td {
-            background: rgba(255,255,255,.02);
-        }
-        
-        .picks-table .tr-top td {
-            background: rgba(240,168,46,0.04);
-        }
-        
-        .pool-pts {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 26px;
-            width极: 36px;
-            height: 36px;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-极        }
-        
-        .pts-gold {
-            background: rgba(240,168,46,0.2);
-            color: var(--gold);
-            border: 1px solid rgba(240,168,46极,0.4);
-        }
-        
-        .pts-blue {
-            background: rgba(56,139,253,0.15);
-            color: var(--blue2);
-            border: 1px solid rgba(56,139,253,0.25);
-        }
-        
-        .pts-gray {
-            background: rgba(255,255,255,0.05);
-            color: var(--text2);
-            border: 1px solid var(--border);
-        }
-        
-        .conf-num {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 28px;
-            line-height: 1;
-        }
-        
-        .conf-bar {
-            width: 60px;
-            height: 4极px;
-            background: rgba(255,255,255,.08);
-            border-radius: 2px;
-            margin: 4px auto 0;
-        }
-        
-        .conf-fill {
-            height: 100%;
-            border-radius: 2px;
-        }
-        
-        .ml-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-            padding: 5px 10px;
-            border-radius: 20px;
-            font-size: 10px;
-            font-weight: 700;
-            letter-spacing: .04em;
-        }
-        
-        .ml-yes {
-            background: rgba(46,160,67,0.2);
-            color: var(--green2);
-            border: 1px solid rgba(46,160,67,0.3);
-        }
-        
-        .ml-no {
-            background: rgba(255,255,255,0.05);
-            color: var(--text3);
-            border: 1px solid var(--border);
-            font-size: 9px;
-        }
-        
-        .flag-cell {
-            font-size: 11px;
-            color: var(--text2);
-        }
-        
-        .flag-item {
-            display: flex;
-            align-items: center;
-            gap: 4px;
-            padding: 1px 0;
-        }
-        
-        /* EMPTY STATE */
-        .empty-state {
-            text-align: center;
-            padding: 60px 20px;
-            border: 2px dashed rgba(255,255,255,0.08);
-            border-radius: 12px;
-        }
-        
-        .empty-icon {
-            font-size: 48px;
-            margin-bottom: 16px;
-        }
-        
-        .empty-title {
-            font-family: 'Bebas Neue', sans-serif;
-            font极size: 22px;
-            color: var(--text2);
-            letter-spacing: .05em;
-            margin-bottom: 8px;
-       极}
-        
-        .empty-desc {
-            font-size: 13px;
-            color: var(--text3);
-            line-height: 1.极7;
-            max-width: 480px;
-            margin: 0 auto;
-        }
-        
-        .empty-cmd {
-            display: inline-block;
-            margin-top: 16px;
-            background: rgba(240,168,46,极0.1);
-            border: 1px solid rgba(240,168,46,0.3);
-            color: var(--gold);
-            padding: 10px 20px;
-            border-radius: 8px;
-            font-family: 'DM Mono', monospace;
-            font-size: 13px;
-            font-weight: 500;
-        }
-        
-        /* PHASE BANNER */
-        .phase-banner {
-            border-radius: 8px;
-            padding: 10px 16px;
-            margin-bottom: 14px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-        
-        /* GAME INPUT */
-        .game-input {
-            display: grid;
-            grid-template-columns: 1fr auto 1fr auto;
-            gap: 8px;
-            align-items: center;
-            margin-bottom: 8px;
-            background: var(--bg3);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 8px 12px;
-        }
-        
-        .game-input select {
-            background: var(--bg2);
-            color: var(--text);
-            border: 1px solid var(--border);
-            border-radius: 6px;
-            padding: 5px 8px;
-极            font-size: 13px;
-            margin: 0;
-        }
-        
-        .at-label {
-            font-size: 12px;
-            color: var(--text2);
-            text-align: center;
-        }
-        
-        .remove-btn {
-            background: none;
-            border: none;
-            color: var(--text2);
-            cursor: pointer;
-            font-size: 16px;
-            padding: 2px 6px;
-            border-radius: 4px;
-        }
-        
-        .remove-btn:hover {
-            color: var(--red2);
-            background: rgba(218,54,51,0.1);
-        }
-        
-        /* RATINGS GRID */
-        .ratings-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(115px, 1fr));
-            gap: 8px;
-        }
-        
-        .rating-card {
-            background: var(--bg3);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 10px 12px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .rating-rank {
-            font-size: 11px;
-            color: var(--text3);
-            width: 18px;
-            flex-shrink: 0;
-        }
-        
-        .rating-team {
-            font-weight: 600;
-            font-size: 13px;
-            flex: 1;
-        }
-        
-        .rating-val {
-            font-size: 11px;
-            color: var(--text2);
-            font-family: 'DM Mono', monospace;
-        }
-        
-        /* SHARED */
-        .box {
-            background: var(--bg极2);
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            padding: 20px;
-            margin-bottom: 16px;
-        }
-        
-        .box-title {
-            font-size: 11px;
-            font-weight: 600;
-            color:极 var(--text3);
-            text-transform: uppercase;
-            letter-spacing: .09em;
-            margin-bottom: 14px;
-        }
-        
-        .cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-        
-        .card {
-            background: var(--bg2);
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            padding: 16px;
-            transition: .15s;
-        }
-        
-        .card:hover {
-            border-color: var(--border2);
-        }
-        
-        .card-lbl {
-            font-size: 10px;
-            color: var(--text3);
-            text-transform: uppercase;
-            letter-spacing: .1em;
-            margin-bottom: 8px;
-        }
-        
-        .card-val {
-            font-size: 28px;
-            font-family: 'Bebas Neue', sans-serif;
-            letter-spacing: .02em;
-        }
-        
-        .card-sub {
-            font-size: 10px;
-            color: var(--text3);
-            margin-top: 3px;
-        }
-        
-        .c-green { color: var(--green2); }
-        .c-amber { color: var(--amber2); }
-        .c-blue { color: var(--blue2); }
-        .c-red { color: var(--red2); }
-        .c-gold { color: var(--gold); }
-        .c-teal { color: var(--teal2); }
-        
-        .g2 {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px;
-        }
-        
-        .g3 {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 16px;
-        }
-        
-        @media (max-width: 800px) {
-            .g2, .g3 {
-                grid-template-columns: 1fr;
-            }
-        }
-        
-        .tbl-wrap {
-            overflow-x: auto;
-            border-radius: 8px;
-            border: 1px solid var(--border);
-        }
-        
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        
-        thead tr {
-            background: var(--bg3);
-        }
-        
-        th {
-            padding: 9px 12px;
-            text-align: left;
-            font-size: 10px;
-            font-weight: 600;
-            color: var(--text3);
-            text-transform: uppercase;
-            letter-spacing: .08极em;
-            white-space: nowrap;
-        }
-        
-        td {
-            padding: 9px 12px;
-            border-top: 1px solid var(--border);
-            font-size: 12px;
-            vertical-align: middle;
-        }
-        
-        tbody tr:hover td {
-            background: rgba(255,255,255,.02);
-        }
-        
-        .mono {
-            font-family: 'DM Mono', monospace;
-            font-size: 11px;
-        }
-        
-        .badge {
-            display: inline-flex;
-            align-items: center;
-            padding: 2px 7极px;
-            border-radius: 4px;
-            font-size: 10px;
-            font极weight: 600;
-        }
-        
-        .b-green {
-            background: rgba(46,160,67,0.15);
-            color: var(--green2);
-            border: 1px solid rgba(46,160,67,0.25);
-        }
-        
-        .极b-red {
-            background: rgba(218,54,51,0.15);
-            color: var(--red2);
-            border: 1px solid rgba(218,54,51,0.25);
-        }
-        
-        .b-amber {
-            background: rgba(210,153,34,0.15);
-            color: var(--amber2);
-            border: 1px solid rgba(210,153,34,0.25);
-        }
-        
-        .b-blue {
-            background: rgba(31,111,235,0.15);
-极            color: var(--blue2);
-            border: 1px solid rgba(31,111,235,0.25);
-        }
-        
-        .b-gray {
-            background: rgba(255,255,255极,0.06);
-            color: var(--极text2);
-            border: 1px solid var(--border);
-        }
-        
-        .b-g极old {
-            background: rgba(240,168,46,0.15);
-            color: var(--gold);
-            border: 1px solid rgba(240,168,46,0.3);
-        }
-        
-        .note {
-            background: rgba(31,111,235,0.07);
-            border-left: 3px solid var(--blue2);
-            padding: 9px 14px;
-            border-radius: 0 6px 6px 0;
-            font-size: 11px;
-            color: var(--text2);
-            margin: 10px 0;
-            line-height: 1.7;
-        }
-        
-        .note-amber {
-            background: rgba(210,153,34,0.07);
-            border-left: 3px solid var(--amber2);
-            padding: 9px 14px;
-            border-radius: 0 6px 6px 0;
-            font-size: 11px;
-            color: var(--text2);
-            margin: 10px 0;
-            line-height: 1.7极;
-        }
-        
-        .note-red {
-            background: rgba(218,54,51,0.07);
-            border-left: 3px solid var(--red2);
-            padding: 9px 14px;
-            border-radius: 0 6px 6px 0;
-            font-size: 11px;
-            color: var(--text2);
-            margin: 10px 0;
-            line-height: 1.7;
-        }
-        
-        .note-green {
-            background: rgba(46,160,67,0.07);
-            border-left: 3px solid var(--green2);
-            padding: 9px 14px;
-            border-radius: 0 6px 6px 极0;
-            font-size: 11px;
-            color: var(--text2);
-            margin: 10px 0;
-            line-height: 1.7;
-        }
-        
-        .formula {
-            background: var(--bg3);
-            border-left: 3px solid var(--gold);
-            padding: 9px 14px;
-            border-radius: 0 6px 6px 0;
-            font-family: 'DM Mono', monospace;
-            font-size: 11px;
-            color: var(--text2);
-            margin: 6px 0;
-            line-height: 1.7;
-        }
-        
-        label {
-            display: block;
-            font-size: 10px;
-            font-weight: 600;
-            color: var(--text3);
-            text-transform: uppercase;
-            letter-spacing: .08em;
-            margin-bottom: 5px;
-        }
-        
-        input, select {
-            width: 100%;
-            padding: 8px 12px;
-            background: var(--bg3);
-            border: 1px solid var(--border);
-            color: var(--text);
-            border-radius: 6px;
-            font-size: 12px;
-            font-family: 'DM Sans', sans-serif;
-            margin-bottom: 12px;
-            -webkit-appearance: none;
-        }
-        
-        input:focus, select:focus {
-            outline: none;
-            border-color: var(--blue2);
-        }
-        
-        .form-group {
-            margin-bottom: 0;
-        }
-        
-        .form-group label {
-            margin-bottom: 5px;
-        }
-        
-        .form-group input, .form-group select {
-            width: 100%;
-            margin-bottom: 0;
-            padding: 8px 12极px;
-            background: var(--bg3);
-            border: 1px solid var(--border);
-            color: var(--text);
-            border-radius: 6px;
-            font-size: 12px;
-            font-family: 'DM Sans', sans-serif;
-            -webkit-appearance: none;
-        }
-        
-        .result-form {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-        }
-        
-        @media (max-width: 600px) {
-            .result-form {
-                grid-template-columns: 1极fr;
-            }
-        }
-        
-        .btn {
-            padding: 9px 18px;
-            border-radius: 7px;
-            font-size: 12px;
-            font-weight: 600;
-            cursor: pointer;
-            border: none;
-            transition: .15s;
-            font-family: 'DM Sans', sans-serif;
-        }
-        
-        .btn-green {
-            background: var(--green);
-            color: #fff;
-        }
-        
-        .btn-green:hover {
-            background: var(--green2);
-        }
-        
-        .btn-blue {
-            background极: var(--blue);
-            color: #fff;
-        }
-        
-        .btn-blue:hover {
-            background: var(--blue2);
-        }
-        
-        .btn-gold {
-            background: rgba(240,168,46,0.15);
-            color: var(--gold);
-            border: 1px solid rgba(240,168,46,0.3);
-        }
-        
-        .btn-gold:hover {
-            background: rgba(240,168,46,0.25);
-        }
-        
-        .btn-outline极 {
-            background: transparent;
-            border: 1px solid var(--border2);
-            color: var(--text);
-        }
-        
-        .btn-outline:hover {
-            background: var(--bg3);
-        }
-        
-        .conf-track {
-            background: rgba(255,255,255,.06);
-            border-radius: 4px;
-            height: 6px;
-            flex: 1;
-        }
-        
-        .conf-fill-bar {
-            height: 6px;
-            border-radius: 4px;
-        }
-        
-        .score-big {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 52px;
-            letter-spacing: .02em;
-            line-height极: 1;
-            text-align: center;
-        }
-        
-        .tier3-bar {
-            background: rgba(218,54,51,0.极1);
-            border: 1px solid rgba(218,54,51,0.3);
-            border-radius: 8px;
-            padding: 12px 16px;
-            font-size: 12px;
-            color: var(--red2);
-            font-weight: 600;
-            margin-bottom: 14px;
-            display: none;
-        }
-        
-        .ref-adj-pos {
-            color: var(--green2);
-            font-family: 'DM Mono', monospace;
-            font-size: 12px;
-            font-weight: 600;
-            min-width: 28px;
-        }
-        
-        .ref-adj-neg {
-            color: var(--red2);
-            font-family: 'DM Mono', monospace;
-            font-size: 12px;
-            font-weight: 600;
-            min-width: 28px;
-        }
-        
-        .ref-adj-neu {
-            color: var(--text3);
-            font-family: '极DM Mono', monospace;
-            font-size: 12px;
-            font-weight: 600;
-            min-width: 28px;
-        }
-        
-        .wk-bar-row {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 6px 0;
-            border-bottom: 1px solid var(--border);
-        }
-        
-        .wk-bar-row:last-child {
-            border-bottom: none;
-        }
-        
-        .wk-lbl {
-            width: 52px;
-            font-size: 11px;
-            color: var(--text2);
-            flex-shrink: 0;
-        }
-        
-        .wk-track {
-            flex: 1;
-            height: 8px;
-            background: rgba(255,255,255,.06);
-            border-radius: 4px;
-            overflow: hidden;
-        }
-        
-        .wk-fill {
-            height: 100%;
-            border-radius: 4px;
-        }
-        
-        .wk-val {
-            width: 48px极;
-            text-align: right;
-            font-family: 'DM Mono', monospace;
-            font极size: 11px;
-            flex-shrink: 0;
-        }
-        
-        .locked-bar {
-            background: linear-gradient(90deg, rgba(31,111,235,0.1), rgba(8,145,178,0.06));
-            border: 1px solid rgba(31,111,235,0.2);
-            border-radius: 8px;
-            padding: 14px 20px;
-            text-align: center;
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 16px;
-            letter-spacing: .05em;
-            color: var(--text2);
-            margin-top: 24px;
-        }
-        
-        .locked-bar span {
-            color: var(--gold);
-        }
-        
-        /* NEW: Amazon link status indicator */
-        .link-status {
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-            padding: 3px 8px;
-            border-radius: 4px;
-            font-size: 11px;
-            font-weight: 600;
-            margin-left: 10px;
-        }
-        
-        .link-status.working {
-            background: rgba(46, 160, 67, 0.15);
-            color: var(--green2);
-            border: 1px solid rgba(46, 160, 67, 0.3);
-        }
-        
-        .link-status.error {
-            background: rgba(218, 54, 51, 0.15);
-            color: var(--red2);
-            border: 1px solid rgba(218, 54, 51, 0.3);
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NFL Edge 2026 — THE Pipeline</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet>
+<style>
+:root{--bg:#0d1117;--bg2:#161b24;--bg3:#1e2633;--bg4:#252e3d;--border:rgba(255,255,255,0.07);--border2:rgba(255极,255,255,0.13);--text:#e6edf3;--text2:#8b96a7;--text3:#4e5a6a;--green:#2ea043;--green2:#3fb950;--blue:#1f6feb;--blue2:#388bfd;--amber:#d29922;--amber2:#e3b341;--red:#da3633;--red2:#f85149;--teal:#0891b2;--teal2:#22d3ee;--gold:#f0a82e}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);font-size:13px}
+.header{display:flex;align-items:center;justify-content:space-between;padding:14px 28px;background:var(--bg2);border-bottom:2px solid var(--gold);position:sticky;top:0;z-index:100}
+.header-left{display:flex;align-items:center;gap:14px}
+.hlogo{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,#1f6feb,#0891b2);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.htitle-main{font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:.06em}
+.htitle-main span{color:var(--gold)}
+.htitle-sub{极font-size:11px;color:var(--text2);margin-top:1px}
+.hlive{display:inline-flex;align-items:center;gap:5px;background:rgba(46,160,67,0.15);border:1px solid rgba(46,160,67,0.35);color:var(--green2);padding:3px 10px;border-radius:20px;font-size:11px;font-weight:600}
+.hlive::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--green2);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+.header-right{text-align:right}
+.hdate{font-size:13px;font-weight:500}
+.hsub{font-size:11px;color:var(--text2);margin-top:2px}
+.hsub span{color:var(--green2);font-weight:600}
+
+/* NAV — two labeled rows */
+.nav-group{background:var(--bg2);border-bottom:1px solid var(--border)}
+.nav-label{padding:5极px 28px 0;font-size:9px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.12em}
+.nav{display:flex;padding:0 28px;gap:2px;overflow-x:auto}
+.nav-sep{height:1px;background:var(--border);margin:0 28px}
+.ntab{padding:10px 16px;color:var(--text2);cursor:pointer;font-size:12px;font-weight:500;border-bottom:2px solid transparent;white-space:nowrap;transition:.15s;display:flex;align-items:center;gap:5px}
+.ntab:hover{color:var(--text)}
+.ntab.active{color:var(--text);border-bottom-color:var(--gold)}
+.ntab.atab.active{border-bottom-color:var(--green2)}
+
+/* PANES */
+.pane{display:none;padding:24px 28px;max-width:1320px;margin:0 auto}
+.pane.active{display:block}
+.mode-banner{display:flex;align-items:center;gap:10px;padding:8px 14px;border-radius:8px;font-size:11px;font-weight:600;letter-spacing:.04em;margin-bottom:16px}
+.mode-banner.auto{background:rgba(46,160,67,0.08);border:1px solid rgba(46,160,67,0.2);color:var(--green2)}
+.mode-banner.manual{background:rgba(240,168,46,0.08);border:1px solid rgba(240,168,46,0.2);color:var(--amber2)}
+
+/* SECTION TITLES */
+.stitle{font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:.05em;margin-bottom:18px;display:flex;align-items:center;gap:10px}
+.stitle::after{content:'';flex:1;height:1px;background:var(--border)}
+
+/* HOW IT WORKS */
+.how-box{background:linear-gradient(135deg,rgba(31,111,235,0.12),rgba(8,145,178,0.06));border:1px solid rgba(31,111,235,0.25);border-radius:12px;padding:24px;margin-bottom:20px}
+.how-box h2{font-family:'Bebas Neue',sans-serif极;font-size:22极px;color:var(--blue2);letter-spacing:.05em;margin-bottom:12px}
+.how-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14极px;margin-top:14px}
+.how-step{background:rgba(255,255,255,0.04);border:1px solid var(--border2);border-radius:10px;padding:14px}
+.how-step-num{font-family:'Bebas Neue',sans-serif;font-size:32px;color:var(--gold);line-height:1;margin-bottom:4px}
+.how-step-title{font-size:13px;font-weight:600;color极:var(--text);margin-bottom:4px}
+.how-step-desc{font-size:11px;color:var(--text2);line-height:1.6}
+
+/* WEEK DISPLAY */
+.week-header{display:flex;align-items:center;justify-content:space-between;background:极var(--bg2);border:1px solid var(--border);border-radius:10px;padding:16px 20px;margin-bottom:20px}
+.week-badge{font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--gold);letter-spacing:.04em}
+.week-meta{font-size:11px;color:var(--text2);margin-top:2px}
+.status-pill{padding:4px 12px;border-radius:20px;font-size:极11px;font-weight:600}
+.status-ready{background:rgba(46,160,67,0.极15);color:var(--green2);border:1px solid rgba(46,160,67,0.3)}
+.status-waiting{background:rgba(255,255,255,0.06);color:var(--text2);border:1px solid var(--border)}
+
+/* PICKS TABLE */
+.picks-table{width:100%;border-collapse:collapse;margin-bottom:16px}
+.picks-table thead tr{background:var(--bg3)}
+.picks-table th{padding:10px 14px;text-align:left;font-size:10px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.09em;white-space:nowrap}
+.picks-table td{padding:11px 14px;border-top:1px solid var(--border);font-size:13px;vertical-align:middle}
+.picks-table tbody tr:hover td{background:rgba(255,255,255,.02)}
+.picks-table .tr-top td{background:rgba(240,168,46,0.04)}
+.pool-pts{font-family:'Bebas Neue',sans-serif;font-size:26px;width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center}
+.pts-gold{background:rgba(240,168,46,0.2);color:var(--gold);border:1px solid rgba(240,168,46,0.4)}
+.pts-blue{background:rgba(56,139,253,0.15);color:var(--blue2);border:1px solid rgba(56,139,253,0.25)}
+.pts-gray{background:rgba(255,255,255,0.05);color:var(--text2极);border:1px solid var(--border)}
+.conf-num{font-family:'Bebas Neue',s极ans-serif;font-size:28px;line-height:1}
+.conf-bar{width:60px;height:4px;background:rgba(255,255,255,.08);border-radius:2px;margin:4px auto 0}
+.conf-fill{height:100%;border-radius:2px}
+.ml-badge{display:inline-flex;align-items:center;gap:4px;padding:5px 10px;border-radius:20px极;font-size:10px;font-weight:700;letter-spacing:.04em}
+.ml-yes{background:rgba(46,160,67,0.2);color:var(--green2);border:1px solid rgba(46,160,67极,极0.3)}
+.ml-no{background:rgba(255,255,255,0.05);color:var(--text3);border:1px solid var(--border);font-size:9px}
+.flag-cell{font-size:11px;color:var(--text2)}
+.flag-item{display:flex;align-items:center;gap:4px;padding:1px 0}
+
+/* EMPTY STATE */
+.empty-state{text-align:center;padding:60px 20px;border:2px dashed rgba(255,255,255,0.08);border-radius:12px}
+.empty-icon{font-size:48px;margin-bottom:16px}
+.empty-title{font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--text2);letter-spacing:.05em;margin-bottom:8px}
+.empty-desc{font-size:13px;color:var(--text3);line-height:1.7;max-width:480px;margin:0 auto}
+.empty-cmd{display:inline-block;margin-top:16px;background:rgba(240,168,46,0.1);border:1px solid rgba(240,168,46,0.3);color:var(--gold);padding:10px 20px;border-radius:8px;font-family:'DM Mono',monospace;font-size:13px;font-weight:500}
+
+/* PHASE BANNER */
+.phase-banner{border-radius:8px;padding:10px 16px;margin-bottom:14px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
+
+/* GAME INPUT */
+.game-input{display:grid;grid-template-columns:1fr auto 1fr auto;gap:8px;align-items:center;margin-bottom:8px;background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:8px 12px}
+.game-input select{background:var(--bg2);color:var(--text);border:1px solid var(--border);border-radius:6px;padding:5px 8px;font-size:13px;margin:0}
+.at-label{font-size:12px;极color:var(--text2);text-align:center}
+.remove-btn{background:none;border:none;color:var(--text2);cursor:pointer;font-size:16px;padding:2px 6px;border-radius:4px}
+.remove-btn:hover{color:var(--red2);background:rgba(218,54,51,0.1)}
+
+/* RATINGS GRID */
+.ratings-grid{display:grid;grid-template-columns:repeat(auto-fill,min极max(115px,1fr));gap:8px}
+.rating-card{background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:10px 12px;display:flex;align-items:center;gap:极8px}
+.rating-rank{font-size:11px;color:var(--text3);width:18px;flex-shrink:0}
+.rating-team{font-weight:600;font-size:13px;flex:1}
+.rating-val{font-size:11px;color:var(--text2);font-family:'DM Mono',monospace}
+
+/* SHARED */
+.box{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:20px;margin-bottom:16px}
+.box-title{font-size:11px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.09em;margin-bottom:14px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin-bottom:20px}
+.card{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:16px;transition:.15s}
+.card:hover{border-color:var(--border2)}
+.card-lbl{font-size:10px;color:var(--text3);text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px}
+.card-val{font-size:28px;font-family:'Bebas Neue',sans-serif;letter-spacing:.02em}
+.card-sub{font-size:10px;color:var(--text3);margin-top:3px}
+.c-green{color:var(--green2)}.c-amber{color:var(--amber2)}.c-blue{极color:var(--blue2)}.c-red{color:var(--red2)}.c-gold{color:var(--gold)}.c-teal{color:var(--teal2)}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}
+@media(max-width:800px){.g2,.g3{grid-template-columns:1fr}}
+.tbl-wrap{overflow-x:auto;border-radius:8px;border:1px solid var(--border)}
+table{width:100%;border-collapse:collapse}
+thead tr{background:var(--bg3)}
+th{padding:9px 12px;text-align:left;font-size:10极px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.08em;white-space:nowrap}
+td{padding:9极px 12px;border-top:1px solid var(--border);font-size:12px;vertical-align:middle}
+tbody tr:hover td{background:rgba(255,255,255,.02)}
+.mono{font-family:'DM Mono',monospace;font-size:11px}
+.badge{display:inline-flex;align-items:center;padding:2px 7px;border-radius:4px;font-size:10px;font-weight:600}
+.b-green{background:rgba(46,160,67,0.15);color:var(--green2);border:1px solid rgba(46,160,67,0.25)}
+.b-red{background:rgba(218,54,51,0.15);color:var(--red2);border:1px solid rgba(218,54,51,0.25)}
+.b-amber{background:rgba(210,153,34,0.15);color:var(--amber2);border:1px solid rgba(210,153,34,0.25)}
+.b-blue{background:rgba(31,111,235,0.15);color:var(--blue2);border:1px solid rgba(31,111,235,0.25)}
+.b-gray{background:rgba(255,255,255,0.06);color:var(--text2极);border:1px solid var(--border)}
+.b-gold{background:rgba(240,168,46,0.15);color:var(--gold);border极:1px solid rgba(240,168,46,0.3)}
+.note{background:rgba(31,111,235,0.07);border-left:3px solid var(--blue2);padding:9px 14px;border-radius:0 6px 6px 0;font-size:11px;color:var(--text2);margin:10px 0;line-height:1.7}
+.note-amber{background:rgba(210,153,34,极0.07);border-left:3px solid var(--amber2);padding:9px 14px;border-radius:0 6px 6px 0;font-size:11px;color:var(--text2);margin:10px 0;line-height:1.7}
+.note-red{background:rgba(218,54,51,0.07);border-left:3px solid var(--red2);padding:9px 14px;border-radius:0 6px 6px 0;font-size:11px;color:var(--text2);margin:10px 0;极line-height:1.7}
+.note-green{background:rgba(46,160,67,0.07);border-left:3px solid var(--green2);padding:9px 14px;border-radius:0 6px 6px 0;font-size:11px;color:var(--text2);margin:10px 0;line-height:1.7}
+.formula{background:var(--bg3);border-left:3px solid var(--gold);padding:9px 14px;border-radius:0 6px 6px 0极;font-family:'DM Mono',monospace;font-size:11px极;color:var(--text2);margin:6px 0;line-height:1.7}
+label{display:block;font-size:10px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.08em;margin-bottom:5px}
+input,select{width:100%;padding:8px 12px;background:var(--bg3);border:1px solid var(--border);color:var(--text);border-radius:6px;font-size:12px;font-family:'DM Sans',sans-serif;margin-bottom:12px;-webkit-appearance:none}
+input:focus,select:focus{outline:none;border-color:var(--blue2)}
+.form-group{margin-bottom:0}
+.form-group label{margin-bottom:5px}
+.form-group input,.form-group select{width:100%;margin-bottom:0;padding:8px 12px;background:var(--bg3);border:1px solid var(--border);color:var(--text);border-radius:6px;font-size:12px;font-family:'DM Sans',sans-serif;-webkit-appearance:none}
+.result-form{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:600px){.result-form{grid-template-columns:1fr}}
+.btn{padding:9px 18px;border-radius:7px;font-size:12px;font-weight:600;cursor:pointer;border:none;transition:.15s;font-family:'极DM Sans',sans-serif}
+.btn-green{background:var(--green);color:#fff}.btn-green:hover{background:var(--green2)}
+.btn-blue{background:var(--blue);color:#fff}.btn-blue:hover{background:var(--blue2)}
+.btn-gold{background:rgba(240,168,46,0.15);color:var(--gold);border:1px solid rgba(240,168,46,0.3)}.btn-gold:hover{background:rgba极(240,168,46,0.25)}
+.btn-outline{background:transparent;border:1px solid var(--border2);color:var(--text)}.btn-outline:hover{background:var(--bg3)}
+.conf-track{background:rgba(255,255,255,.06);border-radius:4px;height:6px;flex极:1}
+.conf-fill-bar{height:6px;border-radius:4px}
+.score-big{font-family:'Bebas Neue',sans-serif;font-size:52px;letter-spacing:.02em;line-height:1;text-align:center}
+.tier3-bar{background:rgba(218,54,51,0.1);border:1px solid rgba(218,54,51,0.3);border-radius:8px;padding:12px 16px;font-size:12px;color:var(--red2);font-weight:600;margin-bottom:14px;display:none}
+.ref-adj-pos{color:var(--green2);font-family:'DM Mono',monospace;font-size:12px;font-weight:600;min-width:28px}
+.ref-adj-neg{color:var(--red2);font-family:'DM Mono',monospace;font-size:12px;font-weight:600;min-width:28px}
+.ref-adj-neu{color:var(--text3);font-family:'DM Mono',monospace;font-size:12px;font-weight:600;min-width:28px}
+.wk-bar-row{display:flex;align-items:center;gap:10px极;padding:6px 0;border-bottom:1px solid var(--border)}
+.wk-bar-row:last-child{border-bottom:none}
+.w极k-lbl{width:52px;font-size:11px;color:极var(--text2);flex-shrink:0}
+.wk-track{flex:1;height:8px;background:rgba(255,255,255,.06);border-radius:4px;overflow:hidden}
+.wk-fill{height:100%;border-radius:4px}
+.wk-val{width:48px;text-align:right;font-family:'DM Mono',monospace;font-size:11px;flex-shrink:0}
+.locked-bar{background:linear-gradient(90deg,rgba(31,111,235,0.1),rgba(8,145,178,0.06));border:1px solid rgba(31,111,235,0.2);border-radius:8px;padding:14px 20px;text-align:center;font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:.05em;color:var(--text2);margin-top:24px}
+.locked-bar span{color:var(--gold)}
+
+/* NEW: Amazon link status indicator */
+.link-status {display:inline-flex;align-items:center;gap:5px;padding:3px 8px;border-radius:4px;font-size:11px;font-weight:600;margin-left:10px}
+.link-status.working {background:rgba(46,160,67,0.15);color:var(--green2);border:1px solid rgba(46,160,67,0.3)}
+.link-status.error {background:rgba(218,54,51,0.15);color:var(--red2);border:1px solid rgba(218,54,51,0.3)}
+</style>
 </head>
 <body>
-    <div class="header">
-        <div class="header-left">
-            <div class="hlogo">🏈</div>
-            <div>
-                <div class="htitle-main">NFL Edge <span>2026</span> — THE Pipeline</div>
-                <div class="htitle-sub">Scott Plumley · Walk-Forward: 60.0% (1,359 games) · In-Season: ~67%</div>
-            </div>
-            <div class="hlive">LIVE</div>
-        </div>
-        <div class="header-right">
-            <div class="hdate" id="hdate">—</div>
-            <div class="hsub">Season opens: <span>September 2026</span></极div>
-        </div>
-    </div>
 
-    <div class="nav-group">
-        <div class="nav-label">🤖 Automated — THE Pipeline Output</div>
-        <div class="nav">
-            <div class="ntab atab active" onclick="show(0)">📋 Weekly Picks</div>
-            <div class="ntab atab" onclick="show(1)">🏆 Pool Tracker</div>
-            <div class="ntab atab" onclick="show(2)">💰 Bankroll</div>
-            <div class="ntab atab" onclick="show(3)">📊 Season Summary</div>
-            <div class="ntab atab" onclick="show(4)">📖 How It Works</div>
-        </div>
-        <div class="nav-sep"></div>
-        <div class="nav-label">🛠️ Manual — Backup Tools</div>
-        <div class="nav">
-            <div class="ntab" onclick="show(5)">📋 Game Entry</div>
-            <div class="ntab" onclick="show(6)">📡 Market Signal</div>
-            <div class="ntab" onclick="show(7)">⚡ Power Ratings</div>
-            <div class="ntab" onclick="show(8)">📊 Score Reference</div>
-            <div class="ntab" onclick="show(9)">🏛️ Referee Lookup</div>
-            <极div class="ntab" onclick="show(10)">🍀 Luck Flags</div>
-            <div class="ntab" onclick="show(11)">📈 Backtest</div>
-            <div class="ntab" onclick="show(12)">🔗 Amazon Link Test</div>
-        </div>
+<div class="header">
+  <div class="header-left">
+    <div class="hlogo">🏈</div>
+    <div>
+      <div class="htitle-main">NFL Edge <span>极2026</span> — THE Pipeline</div>
+      <div class="htitle-sub">Scott Plumley · Walk-Forward: 60.0% (1,359 games) · In-Season: ~67%</div>
     </div>
+    <div class="hlive">LIVE</div>
+  </div>
+  <div class="header-right">
+    <div class="hdate" id="hdate">—</div>
+    <div class="hsub">Season opens: <span>September 2026</span></div>
+  </div>
+</div>
 
-    <!-- ═══ PANE 0: WEEKLY PICKS (from Dashboard) ═══ -->
-    <div class="pane active" id="pane0">
-        <div class="mode-banner auto">🤖 AUTOMATED — THE Pipeline fills this every Wednesday · Say "极Run Week X picks" to start</div>
-        <div class="week-header">
-            <div>
-                <div class="week-badge" id="weekBadge">Waiting for Season</div>
-                <div class="week-meta" id="weekMeta">THE Pipeline will fill this in every Wednesday</div>
-            </极div>
-            <div><span class="status-pill status-waiting" id="weekStatusPill">⏳ Pre-Season</span></div>
-        </div>
-        <div id="picksArea">
-            <div class="empty-state">
-                <div class="empty-icon">🏈</div>
-                <div class="empty-title">Picks Posted Here Every Wednesday</div>
-                <div class="empty-desc">THE Pipeline pulls the full schedule, injury reports, and referee assignments automatically. Open a new chat in the NFL Edge 2026 project and say:</div>
-                <div class="empty-cmd">"Run Week X picks"</div>
-                <div class="empty-desc" style="margin-top:12px">THE Pipeline posts the full ranked picks list here — all 16 games sorted by confidence, with injury flags, referee adjustments, and any $5 ML bets highlighted.<br><br><strong style="color:var(--text)">You only need to:</strong> submit the pool picks and place any flagged bets.</div>
-            </div>
-        </div>
-        <div id="picksTable" style="display:none">
-            <div class极="note-amber" id="weekNote"></div>
-            <div style="overflow-x:auto;border-radius:10px;border:1px solid var(--border)">
-                <table class="picks-table">
-                    <thead><tr><th>Pool Pts</th><th>Matchup</th><th>Pick</th><th style="text-align:center">Conf</th><th style="text-align:center">Edge极</th><th>Flags</th><th>ML Bet</th></tr></thead>
-                    <tbody id="picksBody"></tbody>
-                </table>
-            </div>
-            <div id="mlSummary" class="note-green" style="margin-top:12px;display:none"></div>
-            <div id="dropSummary" class="note-red" style="margin-top:8px;display:none"></div>
-        </div>
+<div class="nav-group">
+  <div class="nav-label">🤖 Automated — THE Pipeline Output</div>
+  <div class="nav">
+    <div class="ntab atab active" onclick="show(0)">📋 Weekly Picks</div>
+    <div class="ntab atab" onclick="show(1)">🏆 Pool Tracker</div>
+    <div class="ntab atab" onclick="show(2)">💰 Bankroll</div>
+    <div class="ntab atab" onclick="show(3)">📊 Season Summary</div>
+    <div class="ntab atab" onclick="show(4)">📖 How It Works</div>
+  </div>
+  <div class="nav-sep"></div>
+  <div class="nav-label">🛠️ Manual — Backup Tools</div>
+  <div class="nav">
+    <div class="ntab" onclick="show(5)">📋 Game Entry</div>
+    <div class="ntab" onclick="show(6)">📡 Market Signal</div>
+    <div class="ntab" onclick="show(7)">⚡ Power Ratings</div>
+    <极div class="ntab" onclick="show(8)">📊 Score Reference</div>
+    <div class="ntab" onclick="show(9)">🏛️ Referee Lookup</div>
+    <div class="ntab" onclick="show(10)">🍀 Luck Flags</div>
+    <div class="ntab" onclick="show(11)">📈 Backtest</div>
+    <div class="ntab" onclick="show(12)">🔗 Amazon Link Test</div>
+  </div>
+</div>
+
+<!-- ═══ PANE 0: WEEKLY PICKS (from Dashboard) ═══ -->
+<div class="pane active" id="pane0">
+  <div class="mode-banner auto">🤖 AUTOMATED — THE Pipeline fills this every Wednesday · Say "Run Week X picks" to start</div>
+  <div class="week-header">
+    <div>
+      <div class="极week-badge" id="weekBadge">Waiting for Season</div>
+      <div class="week-meta" id="weekMeta">THE Pipeline will fill this in every Wednesday</div>
     </div>
-
-    <!-- ═══ PANE 12: AMAZON LINK TEST ═══ -->
-    <div class="pane" id="pane12">
-        <div class="mode-banner manual">🔗 LINK TESTING — Check your Amazon affiliate link</div>
-        <div class="stitle">Amazon Link Test</div>
-        
-        <div class="box">
-            <div class="box-title">Test Your Amazon Affiliate Link</div>
-            <p style="margin-bottom: 16px; color: var(--text2); line-height: 1.6">
-                Use this tool to verify your Amazon affiliate link is working correctly. This is completely separate from the NFL score fetching system.
-            </p>
-            
-            <div class="form-group">
-                <label for="amazon-link-input">Amazon Affiliate Link</label>
-                <input type="url" id="amazon-link-input" placeholder="https://www.amazon.com/...?tag=your-tag" style="margin-bottom: 12px">
-            </div>
-            
-            <button class="btn btn-blue" onclick="testAmazonLink()" style="margin-bottom: 16px">Test Link</button>
-            
-            <div id="amazon-link-result">
-                <div class="note" style="display: flex; align-items: center;">
-                    <span id="link-status-icon">🔍</span>
-                    <span id="link-status-text" style="margin-left: 10px">Enter your Amazon link above and click "Test Link"</span>
-                </div>
-            </div>
-        </div>
-        
-        <div class="note-green">
-            <strong>Note:</strong> This test runs completely separately from the NFL score system. 
-            Even if score fetching fails (like during off-season), your Amazon link can still work correctly.
-        </div>
+    <div><span class="status-pill status-waiting" id="weekStatusPill">⏳ Pre-Season</span></div>
+  </div>
+  <div id="picksArea">
+    <div class="empty-state">
+      <div class="empty-icon">🏈</div>
+      <div class="empty-title">Picks Posted Here Every Wednesday</div>
+      <div class="empty-desc">THE Pipeline pulls the full schedule, injury reports, and referee assignments automatically. Open a new chat in the NFL Edge 2026 project and say:</div>
+      <div class="empty-cmd">"Run Week X picks"</极div>
+      <div class="empty-desc" style="margin-top:12px">THE Pipeline posts the full ranked picks list here — all 16 games sorted by confidence, with injury flags, referee adjustments, and any $5 ML bets highlighted.<br><br><strong style="color:var(--text)">You only need to:</strong> submit the pool picks and place any flagged bets.</div>
     </div>
+  </div>
+  <div id="picksTable" style="display:none">
+    <div class="note-amber" id="weekNote"></div>
+    <div style="overflow-x:auto;border-radius:10px;border:1px solid var(--border)">
+      <table class="picks-table">
+        <thead><tr><th>Pool Pts</th><th>Matchup</th><th>Pick</th><th style="text-align:center">Conf</th><th style="text-align:center">Edge</th><th>Flags</th><th>ML Bet</th></tr></thead>
+        <tbody id="picksBody"></tbody>
+      </table>
+    </div>
+    <div id="mlSummary" class="note-green" style="margin-top:12px;display:none"></div>
+    <div id="dropSummary" class="note-red" style="margin-top:8px;display:none"></div>
+  </div>
+</div>
 
-    <script>
-        // ═══ ALL DATA ════════════════════════════════════════════════════════════════
-        const BLEND_RATINGS = {
-            BUF: +2.09, BAL: +1.52, GB: +1.26, DET: +极1.11, SEA: +1.02,
-            KC: +1.00, PHI: +0.89, LAR: +0.89, DEN: +0.75, SF: +0.70,
-            JAX: +0.63, PIT: +0.57, IND: +0.57, MIN: +0.35, HOU: +0.29,
-            LAC: +0.27, NE: +0.20, DAL: +0.10, CIN: -0.01, TB: -0.01,
-            M极IA: -0.36, NO: -0.56, CHI: -0.56, ATL: -0.88, ARI: -1.02,
-            NYG: -1.10, WAS: -1.11, LVR: -1.33, CAR: -1.61, TEN: -1.66,
-            NYJ: -1.85, CLE: -1.86,
-        };
-        
-        const TEAMS = ['ARI', 'ATL', 'BAL', 'BUF', 'CAR', 'CHI', 'CIN', 'CLE', 'DAL', 'DEN', 'DET', 'GB', 'HOU', 'IND', 'JAX', 'KC', 'LAC', 'LAR', 'LVR', 'MIA', 'MIN', 'NE', 'NO', 'NYG', 'NYJ', 'PHI', 'PIT', 'SE极A', 'SF', '极TB', 'TEN', 'WAS'];
-        
-        const HFA = 1.75;
-        
-        // ═══ STATE ═══════════════════════════════════════════════════════════════════
-        let weekLog = [], betLog = [], pool = [], pinnacleData = {};
-        
-        // ═══ NAV ═════════════════════════════════════════════════════════════════════
-        function show(n) {
-            document.querySelectorAll('.pane').forEach((p, i) => p.classList.toggle('active', i === n));
-            document.querySelectorAll('.ntab').forEach((t, i) => t.classList.toggle('active', i === n));
-        }
-        
-        // ═══ NEW: AMAZON LINK TESTER ════════════════════════════════════════════════
-        async function testAmazonLink() {
-            const linkInput = document.getElementById('amazon-link-input');
-            const link = linkInput.value.trim();
-            const statusIcon = document.getElementById('link-status-icon');
-            const statusText = document.getElementById('link-status-text');
-            
-            if (!link) {
-                statusIcon.textContent = '❌';
-                statusText.textContent = 'Please enter a URL to test';
-                statusText.parentElement.className = 'note-red';
-                return;
-            }
-            
-            // Validate URL format
-            try {
-                new URL(link);
-            } catch (e) {
-                statusIcon.textContent = '❌';
-                statusText.textContent = 'Invalid URL format';
-                statusText.parentElement.className = 'note-red';
-                return;
-            }
-            
-            // Show testing state
-            statusIcon.textContent = '⏳';
-            statusText.textContent = 'Testing link...';
-            statusText.parentElement.className = '极note-amber';
-            
-            try {
-                // Test the link by opening in a new tab
-                const testWindow = window.open(link, '_blank');
-                
-                if (testWindow) {
-                    statusIcon.textContent = '✅';
-                    statusText.textContent = 'Link opened successfully!';
-                    statusText.parentElement.className = 'note-green';
-                    
-                    // Close the test window after a delay
-                    setTimeout(() => {
-                        testWindow.close();
-                    }, 2000);
-                } else {
-                    // Popup was blocked
-                    statusIcon.textContent = '⚠️';
-                    statusText.textContent = 'Popup blocked. Please allow popups to test links.';
-                    statusText.parentElement.className = 'note-amber';
-                }
-            } catch (error) {
-                statusIcon.textContent = '❌';
-                statusText.textContent = 'Error testing link: ' + error.message;
-                statusText.parentElement.className = 'note-red';
-            }
-        }
-        
-        // ═══ NEW: SEASON STATUS CHECKER ═════════════════════════════════════════════
-        function checkSeasonStatus() {
-            const currentDate = new Date();
-            const seasonStartDate = new Date('September 7, 2026');
-            return currentDate >= seasonStartDate;
-        }
-        
-        // ═══ NEW: FUNCTION TO DISPLAY MOCK DATA ═════════════════════════════════════
-        function displayMockData() {
-            const mockPicks = [
-                {poolPts: 16, away: "KC", home: "DET", pick: "KC", conf: 14, edge: 5.2, isML: true},
-                {poolPts: 15, away: "BUF", home: "MIA", pick: "BUF", conf: 13, edge: 4.8, isML: false},
-                {poolPts: 14, away: "BAL", home: "CIN", pick极: "BAL", conf: 12, edge: 4.1, isML: true},
-                {poolPts: 13, away: "PHI", home: "DAL", pick: "PHI", conf: 11, edge: 3.5, isML: false},
-                {poolPts: 12, away: "GB", home: "MIN", pick: "GB", conf: 10, edge: 3.2, isML: false},
-                {poolPts: 11, away: "SF", home: "ARI", pick: "SF", conf: 9, edge: 2.8, isML: false},
-                {poolPts: 10, away: "LAR", home: "SEA", pick: "LAR", conf: 8, edge: 2.3, is极ML: false},
-                {poolPts: 9, away: "JAX", home: "HOU", pick: "JAX", conf: 7, edge: 1.9, isML: false},
-                {poolPts: 8, away: "DEN", home: "LVR", pick: "DEN", conf: 6, edge: 1.5, isML: false},
-                {poolPts: 7, away: "PIT", home: "CLE", pick: "P极IT", conf: 5, edge: 1.2, isML: false},
-                {poolPts: 6, away: "IND", home: "TEN", pick: "IND", conf: 4, edge: 0.8, isML: false},
-                {poolPts: 5, away: "NE", home: "NYJ", pick: "NE", conf: 3, edge: 0.5, isML: false},
-                {poolPts: 4, away: "WAS", home: "NYG", pick: "WAS", conf: 2, edge: 0.3, isML: false},
-                {poolPts: 3, away: "CHI", home: "DET", pick: "CHI", conf极: 2, edge: 0.2, isML: false},
-                {poolPts: 2, away: "CAR", home: "TB", pick: "CAR", conf: 1, edge: 极0.1, isML: false},
-                {poolPts: 1, away: "ATL", home: "NO极", pick: "ATL", conf: 1, edge: 0.1, isML: false}
-            ];
-            
-            renderPicks("1", "Mock data - Season hasn't started", mockPicks);
-        }
-        
-        // ═══ NEW: IMPROVED SCORE FETCHING WITH ERROR HANDLING ══════════════════════
-        async function fetchScores() {
-            const isSeasonStarted = checkSeasonStatus();
-            const scoreContainer = document.getElementById('picksArea');
-            
-            try {
-                if (!isSeasonStarted) {
-                    throw new Error('Season has not started yet');
-                }
-                
-                // Show loading state
-                scoreContainer.innerHTML = `
-                    <div class="empty-state">
-                        <div class="empty-icon">⏳</div>
-                        <div class="empty-title">Loading Scores...</div>
-                        <div class="empty-desc">THE Pipeline is fetching the latest NFL scores</div>
-                    </div>
-                `;
-                
-                // This would be your actual score fetching code
-                // Simulate API call delay
-                await new Promise(resolve => setTimeout(resolve, 2000));
-                
-                // Simulate API failure for demonstration
-                throw new Error('Score API unavailable');
-                
-            } catch (error) {
-                console.warn('Score fetch failed:', error.message);
-                
-                // Display appropriate message
-                if (error.message.includes('Season has not started')) {
-                    scoreContainer.innerHTML = `
-                        <div class="empty-state">
-                            <div class="empty-icon">🏈极</div>
-                            <div class="empty-title">2026 Season Starts September 7th</div>
-                            <div class="empty-desc">THE Pipeline will automatically fetch scores once the season begins</div>
-                            <div class="empty-cmd" onclick="displayMockData()">Show Mock Data for Testing</div>
-                        </div>
-                    `;
-                } else {
-                    scoreContainer.innerHTML = `
-                        <div class="empty-state">
-                            <div class="empty-icon">⚠️</div>
-                            <div class="empty-title">Temporary Score Unavailable</div>
-                            <div class="empty-desc">${error.message}. Using mock data for demonstration.</div>
-                            <div class="empty-cmd" onclick="displayMockData()">Show Mock Data</div>
-                        </div>
-                    `;
-                }
-            }
-        }
-        
-        // ═══ AUTOMATED: PICKS RENDERER (called by THE Pipeline) ══════════════════════
-        // renderPicks(week, note, picks[]) — picks: {poolPts,away,home,pick,conf,edge,ref,injFlag,luckFlag,isML,isDrop}
-        function renderPicks(week, note, picks) {
-            document.getElementById('picksArea').style.display = 'none';
-            document.getElementById('picksTable').style.display = 'block';
-            document.getElementById('weekBadge').textContent = 'Week ' + week;
-            document.getElementById('weekMeta').textContent = 'Generated by THE Pipeline — ' + new Date().toLocaleDateString('en-US', {
-                month: 'long',
-                day: 'numeric',
-                year: 'numeric'
-            });
-            document.getElementById('weekStatusPill').textContent = '✅ Ready';
-            document.getElementById('weekStatusPill').className = 'status-pill status-ready';
-            
-            if (note) document.getElementById('weekNote').text极Content = note;
-            
-            const mlGames = picks.filter(p => p.isML),
-                dropGames = picks.filter(p => p.isDrop);
-            
-            if (mlGames.length) {
-                const el = document.getElementById('mlSummary');
-                el.style.display = 'block';
-                el.innerHTML = '★  <strong>' + mlGames.length + ' game' + (mlGames.length > 1 ? 's' : '') + ' qualify for $极5 flat ML bet:</strong>  ' + mlGames.map(p => '<strong>' + p.pick + '</strong> (conf ' + p.conf + ')').join('  |  ');
-            }
-            
-            if (dropGames.length) {
-                const el = document.getElementById('dropSummary');
-                el.style.display = 'block';
-                el.innerHTML = '⛔  <strong>' + dropGames.length + ' game' + (dropGames.length > 1 ? '极s' : '') + ' DROPPED (Tier 3 injury):</strong>  ' + dropGames.map(p => p.away + ' @ ' + p.home).join('  |  ') + '  — assigned 1 pt, pick home team';
-            }
-            
-            document.getElementById('picksBody').innerHTML = picks.map((p, i) => {
-                const cc = p.conf >= 12 ? 'var(--green2)' : p.conf >= 9 ? 'var(--blue2)' : p.conf >= 5 ? 'var(--amber2)' : 'var(--red2)';
-                const ec = p.edge >= 2 ? 'var(--green2)' : p.edge >= 0 ? 'var(--blue2)' : 'var(--red2)';
-                const pc = p.poolPts >= 14 ? 'pts-gold' : p.poolPts >= 8 ? 'pts-blue' : 'pts-gray';
-                const flags = [p.ref ? '🏛️ ' + p.ref : '', p.injFlag ? '🏥 ' + p.injFlag : '', p.luckFlag ? '🍀 ' + p.luckFlag : ''].filter(Boolean);
-                
-                return `<tr class="${i < 3 ? 'tr-top' : ''}">
-                    <td><div class="pool-pts ${pc}">${p.poolPts}</div></td>
-                    <td><div style="font-size:14px;font-weight:600">${p.away} <span style="color:var(--text3)">@</span> ${p.home}</div><div style="font-size:10px;color:var(--text3);font-family:'DM Mono',monospace;margin-top:2px">KP diff ${(p.diff || 0) >= 0 ? '+' : ''}${p.diff || 0} | pool pts ${p.poolP极ts}/16</div></td>
-                    <td><strong style="color:${cc}极">${p.pick}</strong></td>
-                    <td style="text-align:center"><div class="conf-num" style="color:${cc}">${p.isDrop ? 'DROP' : p.conf}</div><div class="conf-bar"><div class="conf-fill" style="width:${Math.round((p.conf / 14) * 100)}%;background:${cc}"></div></div></td>
-                    <td style="text-align:center;font-family:'DM Mono',monospace;font-size:13px;font-weight:500;极color:${ec}">${p.edge >= 0 ? '+' : ''}${p.edge}%</极td>
-                    <td class="flag-cell">${flags.map(f => `<div class="flag-item">${f}</div>`).join('')}</td>
-                    <td>${p.isML ? '<span class="ml-badge ml-yes">★ BET $5</span>' : p.isDrop ? '<span class="ml-badge ml-no">DROPPED</span>' : '<span class="ml-badge ml-no">Pool only</span>'}</td>
-                </tr>`;
-            }).join('');
-        }
-        
-        // ═══ INITIALIZE THE APPLICATION ══════════════════════════════════════════════
-        function initApp() {
-            const n = new Date();
-            document.getElementById('hdate').textContent = n.toLocaleDateString('en-US', {
-                weekday: 'long',
-                month: 'long',
-                day: 'numeric',
-                year: 'numeric'
-            }) + ' — ' + n.toLocaleTimeString('en-US', {
-                hour: 'numeric',
-                minute: '2-digit',
-                hour12: true
-            });
-            
-            // Check season status and load appropriate data
-            if (checkSeasonStatus()) {
-                fetchScores();
-            } else {
-                // Season hasn't started yet
-                document.querySelector('.hlive').style.display = 'none';
-                document.getElementById('weekStatusPill').textContent = '⏳ Pre-Season';
-            }
-        }
-        
-        // Run initialization when document is loaded
-        document.addEventListener('DOMContentLoaded', initApp);
-    </script>
+<!-- ═══ PANE 12: AMAZON LINK TEST ═══ -->
+<div class="pane" id="pane12">
+  <div class="mode-banner manual">🔗 LINK TESTING — Check your Amazon affiliate link</div>
+  <div class="stitle">Amazon Link Test</div>
+  
+  <div class="box">
+    <div class="box-title">Test Your Amazon Affiliate Link</div>
+    <p style="margin-bottom: 16px; color: var(--text2); line-height: 1.6">
+      Use this tool to verify your Amazon affiliate link is working correctly. This is completely separate from the NFL score fetching system.
+    </p>
+    
+    <div class="form-group">
+      <label for="amazon-link-input">Amazon Affiliate Link</label>
+      <input type="url" id="amazon-link-input" placeholder="https://www.amazon.com/...?tag=your-tag" style="margin-bottom: 12px">
+    </div>
+    
+    <button class="btn btn-blue" onclick="testAmazonLink()" style="margin-bottom: 16px">Test Link</button>
+    
+    <div id="amazon-link-result">
+      <div class="note" style="display: flex; align-items: center;">
+        <span id="link-status-icon">🔍</span>
+        <span id="link-status-text" style="margin-left: 10px">Enter your Amazon link above and click "Test Link"</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="note-green">
+    <strong>Note:</strong> This test runs completely separately from the NFL score system. 
+    Even if score fetching fails (like during off-season), your Amazon link can still work correctly.
+  </div>
+</div>
+
+<script>
+// ═══ ALL DATA ════════════════════════════════════════════════════════════════
+const BLEND_RATINGS={
+  BUF:+2.09,BAL:+1.52,GB:+1.26,DET:+1.11,SEA:+1.02,
+  KC:+1.00,PHI:+0.89,LAR:+0.89,DEN:+0.75,SF:+0.70,
+  JAX:+0.63,PIT:+0.57,IND:+0.57,MIN:+0.35,HOU:+0.29,
+  LAC:+0.27,NE:+极0.20,DAL:+0.10,CIN:-0.01,TB:-0.01,
+  MIA:-0.36,NO:-0.56,CHI:-0.56,ATL:-0.88,ARI:-1.02,
+  NYG:-1.10,WAS:-1.11,LVR:-1.33,CAR:-1.61,TEN:-1.66,
+  NYJ:-1.85,CLE:-1.86,
+};
+const TEAMS=['ARI','ATL','BAL','BUF','CAR','CHI','CIN','CLE','DAL','DEN','DET','GB','HOU','IND','JAX','KC','LAC','LAR','LVR','MIA','MIN','NE','NO','NYG','NYJ','PHI','PIT','SEA','SF','TB','TEN','WAS'];
+const HFA=1.75;
+
+// ═══ STATE ═══════════════════════════════════════════════════════════════════
+let weekLog=[], betLog=[], pool=[], pinnacleData={};
+
+// ═══ NAV ═════════════════════════════════════════════════════════════════════
+function show(n){
+  document.querySelectorAll('.pane').forEach((p,i)=>p.classList.toggle('active',i===n));
+  document.querySelectorAll('.ntab').forEach((t,i)=>t.classList.toggle('active',i===n));
+}
+
+// ═══ NEW: AMAZON LINK TESTER ════════════════════════════════════════════════
+async function testAmazonLink(){
+  const linkInput=document.getElementById('amazon-link-input');
+  const link=linkInput.value.trim();
+  const statusIcon=document.getElementById('link-status-icon');
+  const statusText=document.getElementById('link-status-text');
+  
+  if(!link){
+    statusIcon.textContent='❌';
+    statusText.textContent='Please enter a URL to test';
+    statusText.parentElement.className='note-red';
+    return;
+  }
+  
+  // Validate URL format
+  try{
+    new URL(link);
+  }catch(e){
+    statusIcon.textContent='❌';
+    statusText.textContent='Invalid URL format';
+    statusText.parentElement.className='note-red';
+    return;
+  }
+  
+  // Show testing state
+  statusIcon.textContent='⏳';
+  statusText.textContent='Testing link...';
+  statusText.parentElement.className='note-amber';
+  
+  try{
+    // Test the link by opening in a new tab
+    const testWindow=window.open(link,'_blank');
+    
+    if(testWindow){
+      statusIcon.textContent='✅';
+      statusText.textContent='Link opened successfully!';
+      statusText.parentElement.className='note-green';
+      
+      // Close the test window after a delay
+      setTimeout(()=>{
+        testWindow.close();
+      },2000);
+    }else{
+      // Popup was blocked
+      statusIcon.textContent='⚠️';
+      statusText.textContent='Popup blocked. Please allow popups to test links.';
+      statusText.parentElement.className='note-amber';
+    }
+  }catch(error){
+    statusIcon.textContent='❌';
+    statusText.textContent='Error testing link: '+error.message;
+    statusText.parentElement.className='note-red';
+  }
+}
+
+// ═══ NEW: SEASON STATUS CHECKER ═════════════════════════════════════════════
+function checkSeasonStatus(){
+  const currentDate=new Date();
+  const seasonStartDate=new Date('September 7, 2026');
+  return currentDate>=seasonStartDate;
+}
+
+// ═══ NEW: FUNCTION TO DISPLAY MOCK DATA ═════════════════════════════════════
+function displayMockData(){
+  const mockPicks=[
+    {poolPts:16,away:"KC",home:"DET",pick:"KC",conf:14,edge:5.2,isML:true},
+    {poolPts:15,away:"BUF",home:"MIA",pick:"BUF",conf:13,edge:4.8,isML:false},
+    {poolPts:14,away:"BAL",home:"CIN",pick:"BAL",conf:12,edge:4.1,isML:true},
+    {poolPts:13,away:"PHI",home:"DAL",pick:"PHI",conf:11,edge:3.5,isML:false},
+    {poolPts:12,away:"GB",home:"MIN",pick:"GB",conf:10,edge:3.2,isML:false},
+    {poolPts:11,away:"SF",home:"ARI",pick:"SF",conf:9,edge:2.8,isML:false},
+    {poolPts:10,away:"LAR",home:"SEA",pick:"LAR",conf:8,edge:2.3,isML:false},
+    {poolPts:9,away:"JAX",home:"HOU",pick:"JAX",conf:7,edge:1.9,isML:false},
+    {poolPts:8,away:"DEN",home:"LVR",pick:"DEN",conf:6,edge:1.5极,isML:false},
+    {poolPts:7,away:"PIT",home:"CLE",pick:"PIT",conf:5,edge:1.2,isML:false},
+    {poolPts:6,away:"IND",home:"TEN",pick:"IND",conf:4,edge:0.8,isML:false},
+    {poolPts:5,away:"NE",home:"NYJ",pick:"NE",conf:3,edge:0.5,isML:false},
+    {poolPts:4,away:"WAS",home:"NYG",pick:"WAS",conf:2,edge:0.3,isML:false},
+    {poolPts:3,away:"CHI",home:"DET",pick:"CHI",conf:2,edge:0.2,isML:false},
+    {poolPts:2,away:"CAR",home:"TB",pick:"CAR",conf:1,edge:0.1,isML:false},
+    {poolPts:1,away:"ATL",home:"NO",pick:"ATL",conf:1,edge:0.1,isML:false}
+  ];
+  
+  renderPicks("1","Mock data - Season hasn't started",mockPicks);
+}
+
+// ═══ NEW: IMPROVED SCORE FETCHING WITH ERROR HANDLING ══════════════════════
+async function fetchScores(){
+  const isSeasonStarted=checkSeasonStatus();
+  const scoreContainer=document.getElementById('picksArea');
+  
+  try{
+    if(!isSeasonStarted){
+      throw new Error('Season has not started yet');
+    }
+    
+    // Show loading state
+    scoreContainer.innerHTML=`
+      <div class="empty-state">
+        <div class="empty-icon">⏳</div>
+        <div class="empty-title">Loading Scores...</div>
+        <div class="empty-desc">THE Pipeline is fetching the latest NFL scores</div>
+      </div>
+    `;
+    
+    // This would be your actual score fetching code
+    // Simulate API call delay
+    await new Promise(resolve=>setTimeout(resolve,2000));
+    
+    // Simulate API failure for demonstration
+    throw new Error('Score API unavailable');
+    
+  }catch(error){
+    console.warn('Score fetch failed:',error.message);
+    
+    // Display appropriate message
+    if(error.message.includes('Season has not started')){
+      scoreContainer.innerHTML=`
+        <div class="empty-state">
+          <div class="empty-icon">🏈</div>
+          <div class="empty-title">2026 Season Starts September 7th</div>
+          <div class="empty-desc">THE Pipeline will automatically fetch scores once the season begins</div>
+          <div class="empty-cmd" onclick="displayMockData()">Show Mock Data for Testing</div>
+        </div>
+      `;
+    }else{
+      scoreContainer.innerHTML=`
+        <div class="empty-state">
+          <div class="empty-icon">⚠️</div>
+          <div class="empty-title">Temporary Score Unavailable</div>
+          <div class="empty-desc">${error.message}. Using mock data for demonstration.</div>
+          <div class="empty-cmd" onclick="displayMockData()">Show Mock Data</div>
+        </div>
+      `;
+    }
+  }
+}
+
+// ═══ AUTOMATED: PICKS RENDERER (called by THE Pipeline) ══════════════════════
+// renderPicks(week, note, picks[]) — picks: {poolPts,away,home,pick,conf,edge,ref,in极jFlag,luckFlag,isML,isDrop}
+function renderPicks(week,note,picks){
+  document.getElementById('picksArea').style.display='none';
+  document.getElementById('picksTable').style.display='block';
+  document.getElementById('weekBadge').textContent='Week '+week;
+  document.getElementById('weekMeta').textContent='Generated by THE Pipeline — '+new Date().toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'});
+  document.getElementById('weekStatusPill').textContent='✅ Ready';
+  document.getElementById('weekStatusPill').className='status-pill status-ready';
+  if(note)document.getElementById('weekNote').textContent=note;
+  const mlGames=picks.filter(p=>p.isML),dropGames=picks.filter(p=>p.isDrop);
+  if(mlGames.length){const el=document.getElementById('mlSummary');el.style.display='block';el.innerHTML='★  <strong>'+mlGames.length+' game'+(mlGames.length>1?'s':'')+' qualify for $5 flat ML bet:</strong>  '+mlGames.map(p=>'<strong>'+p.pick+'</strong> (conf '+p.conf+')').join('  |  ');}
+  if(dropGames.length){const el=document.getElementById('dropSummary');el.style.display='block';el.innerHTML='⛔  <strong>'+dropGames.length+' game'+(dropGames.length>1?'s':'')+' DROPPED (Tier 3 injury):</strong>  '+dropGames.map(p=>p.away+' @ '+p.home).join('  |  ')+'  — assigned 1 pt, pick home team';}
+  document.getElementById('picksBody').innerHTML=picks.map((p,i)=>{
+    const cc=p.conf>=12?'var(--green2)':p.conf>=9?'var(--blue2)':p.conf>=5?'var(--amber2)':'var(--red2)';
+    const ec=p.edge>=2?'var(--green2)':p.edge>=0?'极var(--blue2)':'var(--red2)';
+    const pc=p.poolPts>=14?'pts-gold':p.poolPts>=8?'pts-blue':'pts-gray';
+    const flags=[p.ref?'🏛️ '+p.ref:'',p.injFlag?'🏥 '+p.injFlag:'',p.luckFlag?'🍀 '+p.luckFlag:''].filter(Boolean);
+    return`<tr class="${i<3?'tr-top':''}">
+      <td><div class="pool-pts ${pc}">${p.poolPts}</div></td>
+      <td><div style="font-size:14px;font-weight:600">${p.away} <span style="color:var(--text3)">@</span> ${p.home}</div><div style="font-size:10px;color:var(--text3);font-family:'DM Mono',monospace;margin-top:2px">KP diff ${(p.diff||0)>=0?'+':''}${p.diff||0} | pool pts ${p.poolPts}/16</div></td>
+      <td><strong style="color:${cc}">${p.pick}</strong></td>
+      <td style="text-align:center"><div class="conf-num" style="color:${cc}">${p.isDrop?'DROP':p.conf}</div><div class="conf-bar"><div class="conf-fill" style="width:${Math.round((p.conf/14)*100)}%;background:${cc}"></div></div></td>
+      <td style="text-align:center;font-family:'DM Mono',monospace;font-size:13px;font-weight:500;color:${ec}">${p.edge>=0?'+':''}${p.edge}%</td>
+      <td class="flag-cell">${flags.map(f=>`<div class="flag-item">${f}</div>`).join('')}</td>
+      <td>${p.isML?'<span class="ml-badge ml-y极es">★ BET $5</span>':p.isDrop?'<span class="ml-badge ml-no">DROPPED</span>':'<span class="ml-badge ml-no">Pool only</span>'}</td>
+    </tr>`;
+  }).join('');
+}
+
+// ═══ INITIALIZE THE APPLICATION ══════════════════════════════════════════════
+function initApp(){
+  const n=new Date();
+  document.getElementById('hdate').textContent=n.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric',year:'numeric'})+' — '+n.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',hour12:true});
+  
+  // Check season status and load appropriate data
+  if(checkSeasonStatus()){
+    fetchScores();
+  }else{
+    // Season hasn't started yet
+    document.querySelector('.hlive').style.display='none';
+    document.getElementById('weekStatusPill').textContent='⏳ Pre-Season';
+  }
+}
+
+// Run initialization when document is loaded
+document.addEventListener('DOMContentLoaded',initApp);
+</script>
 </body>
 </html>
