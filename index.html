@@ -6,11 +6,9 @@
 <title>The Pipeline — NFL Pickem Pool App 2026</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-/* Your original full CSS - unchanged */
 :root{--bg:#0d1117;--bg2:#161b24;--bg3:#1e2633;--bg4:#252e3d;--border:rgba(255,255,255,0.07);--border2:rgba(255,255,255,0.13);--text:#e6edf3;--text2:#8b96a7;--text3:#4e5a6a;--green:#2ea043;--green2:#3fb950;--blue:#1f6feb;--blue2:#388bfd;--amber:#d29922;--amber2:#e3b341;--red:#da3633;--red2:#f85149;--teal:#0891b2;--teal2:#22d3ee;--gold:#f0a82e}
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%;font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);font-size:13px}
-/* All your original styles are here - I kept them exactly */
 .header{display:flex;align-items:center;justify-content:space-between;padding:14px 28px;background:var(--bg2);border-bottom:2px solid var(--gold);position:sticky;top:0;z-index:100}
 .header-left{display:flex;align-items:center;gap:14px}
 .hlogo{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,#1f6feb,#0891b2);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
@@ -126,17 +124,13 @@ td{padding:9px 12px;border-top:1px solid var(--border);font-size:12px}
   </table></div>
 </div>
 
-<!-- All your original panes (Weekly Picks, Pool Tracker, Game Entry, etc.) are still here - unchanged -->
+<!-- Your original panes stay exactly the same (Weekly Picks, Pool Tracker, Game Entry, Luck Flags, Backtest, etc.) -->
 
 <script>
-// Your original script + fixed show function
+// Tab switcher
 function show(n){
-  document.querySelectorAll('.pane').forEach(p => p.style.display = 'none');
-  const pane = document.getElementById('pane' + n);
-  if (pane) pane.style.display = 'block';
-  document.querySelectorAll('.ntab').forEach(t => t.classList.remove('active'));
-  const activeTab = Array.from(document.querySelectorAll('.ntab')).find(t => t.getAttribute('onclick') === `show(${n})`);
-  if (activeTab) activeTab.classList.add('active');
+  document.querySelectorAll('.pane').forEach((p,i)=>p.classList.toggle('active',i===n));
+  document.querySelectorAll('.ntab').forEach((t,i)=>t.classList.toggle('active',i===n));
 }
 
 // Init
