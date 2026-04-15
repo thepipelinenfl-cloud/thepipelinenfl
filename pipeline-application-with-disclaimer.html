@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pipeline Application with Disclaimer</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="scripts.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Pipeline Application</h1>
+        <div class="tabs">
+            <button class="tablink" onclick="openTab(event, 'pane0')">Pane 0</button>
+            <button class="tablink" onclick="openTab(event, 'pane1')">Pane 1</button>
+            <button class="tablink" onclick="openTab(event, 'pane2')">Pane 2</button>
+            <button class="tablink" onclick="openTab(event, 'pane3')">Pane 3</button>
+            <button class="tablink" onclick="openTab(event, 'pane4')">Pane 4</button>
+            <button class="tablink" onclick="openTab(event, 'pane5')">Pane 5</button>
+            <button class="tablink" onclick="openTab(event, 'pane6')">Pane 6</button>
+            <button class="tablink" onclick="openTab(event, 'pane7')">Pane 7</button>
+            <button class="tablink" onclick="openTab(event, 'pane8')">Pane 8</button>
+            <button class="tablink" onclick="openTab(event, 'pane9')">Pane 9</button>
+            <button class="tablink" onclick="openTab(event, 'pane10')">Pane 10</button>
+            <button class="tablink" onclick="openTab(event, 'pane11')">Pane 11</button>
+            <button class="tablink" onclick="openTab(event, 'pane12')">Pane 12</button>
+            <button class="tablink" onclick="openTab(event, 'pane13')">Pane 13</button>
+        </div>
+
+        <div id="pane0" class="tabcontent">
+            <h2>Pane 0 Content</h2>
+            <p>This is content for Pane 0.</p>
+        </div>
+        <div id="pane1" class="tabcontent" style="display:none;">
+            <h2>Pane 1 Content</h2>
+            <p>This is content for Pane 1.</p>
+        </div>
+        <div id="pane2" class="tabcontent" style="display:none;">
+            <h2>Pane 2 Content</h2>
+            <p>This is content for Pane 2.</p>
+        </div>
+        <div id="pane3" class="tabcontent" style="display:none;">
+            <h2>Pane 3 Content</h2>
+            <p>This is content for Pane 3.</p>
+        </div>
+        <div id="pane4" class="tabcontent" style="display:none;">
+            <h2>Pane 4 Content</h2>
+            <p>This is content for Pane 4.</p>
+        </div>
+        <div id="pane5" class="tabcontent" style="display:none;">
+            <h2>Pane 5 Content</h2>
+            <p>This is content for Pane 5.</p>
+        </div>
+        <div id="pane6" class="tabcontent" style="display:none;">
+            <h2>Pane 6 Content</h2>
+            <p>This is content for Pane 6.</p>
+        </div>
+        <div id="pane7" class="tabcontent" style="display:none;">
+            <h2>Pane 7 Content</h2>
+            <p>This is content for Pane 7.</p>
+        </div>
+        <div id="pane8" class="tabcontent" style="display:none;">
+            <h2>Pane 8 Content</h2>
+            <p>This is content for Pane 8.</p>
+        </div>
+        <div id="pane9" class="tabcontent" style="display:none;">
+            <h2>Pane 9 Content</h2>
+            <p>This is content for Pane 9.</p>
+        </div>
+        <div id="pane10" class="tabcontent" style="display:none;">
+            <h2>Pane 10 Content</h2>
+            <p>This is content for Pane 10.</p>
+        </div>
+        <div id="pane11" class="tabcontent" style="display:none;">
+            <h2>Pane 11 Content</h2>
+            <p>This is content for Pane 11.</p>
+        </div>
+        <div id="pane12" class="tabcontent" style="display:none;">
+            <h2>Pane 12 Content</h2>
+            <p>This is content for Pane 12.</p>
+        </div>
+        <div id="pane13" class="tabcontent" style="display:none;">
+            <h2>Pane 13 Content</h2>
+            <p>This is content for Pane 13.</p>
+        </div>
+    </div>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+
+            tablinks = document.getElementsByClassName("tablink");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+    </script>
+</body>
+</html>
